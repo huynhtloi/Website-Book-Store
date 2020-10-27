@@ -1,0 +1,15 @@
+{
+    "compile-hero.disable-compile-files-on-did-save-code": true,
+    "cassandraWorkbench.activeClusterName": "Cluster AllowAllAuthenticator",
+    "cassandraWorkbench.activeKeyspace": [
+        [
+            "Cluster AllowAllAuthenticator",
+            "book_store"
+        ],
+        [
+            "Cluster PasswordAuthenticator",
+            "book_store"
+        ]
+    ],
+    "cassandraWorkbench.splitPosition": 40.50632911392405
+}

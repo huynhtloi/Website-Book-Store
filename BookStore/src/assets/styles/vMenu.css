@@ -1,0 +1,55 @@
+.vmenu {
+		position:relative;
+		margin:0;
+		float:left;
+		display:block;
+		width:100%;
+		
+}
+/* remove all the bullets, borders and padding from the default list styling */
+.vmenu ul {
+		padding:0;
+		margin:0;
+		list-style-type:none;
+		border-left:1px solid #efefef;
+		width:100%;
+}
+/* vi tri lien quan de co de dat menu sub */
+.vmenu li {
+		position:relative;
+}
+/* get rid of the table */
+.vmenu table {position:absolute; border-collapse:collapse; left:0; top:2px;}
+.vmenu ul ul {
+	    /*visibility:hidden;
+		position:absolute;
+		top:-1px;*/
+		/*!top:-2px; /*hack ie6*/
+		/*top:-2px\0/; /*hack ie8*/
+		/*left:190px;*/
+}
+.vmenu ul ul li a {padding-left:30px; font-weight:normal; margin-left:-1px;}
+.vmenu ul :hover ul{
+visibility:visible;
+}
+.vmenu ul :hover ul a:hover {color:#0a66a6;}
+.vmenu ul :hover ul :hover > a {color:#0a66a6;}
+
+/* keep the third level hidden when you hover on first level list OR link */
+.vmenu ul :hover ul ul {
+    visibility:hidden;
+}
+/* keep the fourth level hidden when you hover on second level list OR link */
+.vmenu ul :hover ul :hover ul ul {
+visibility:hidden;
+}
+/* make the third level visible when you hover over second level list OR link */
+.vmenu ul :hover ul :hover ul{ 
+visibility:visible;
+}
+.vmenu ul ul {background-color:#fff;}
+.vmenu ul :hover ul :hover ul a {color:#FFFFFF;}
+.vmenu ul :hover ul :hover ul a:hover {color:#99ccff;}
+.vmenu ul :hover ul :hover ul :hover > a {color:#99ccff;}
+/* End vmenu */
+

@@ -1,0 +1,51 @@
+<!------ Include the above in your HEAD tag ---------->
+<form [formGroup]="register" (ngSubmit)="onSubmit()">
+  <div class="container register-form">
+    <div class="form">
+      <div class="note">
+        <p>{{title | uppercase}}</p>
+      </div>
+      <div class="form-content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Username *" formControlName="userName" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Name *" formControlName="name" />
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control" placeholder="Age *" formControlName="age" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Address *" formControlName="address" />
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Sex *" formControlName="sex" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Your Password *" formControlName="passWord" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Confirm Password *" formControlName="confirmPass" />
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btnSubmit" [disabled]="!register.valid">Đăng ký</button>
+        <br>
+        <div class="alert alert-success alert-dismissible" *ngIf="showAlert">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          {{meesageAlert}}
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

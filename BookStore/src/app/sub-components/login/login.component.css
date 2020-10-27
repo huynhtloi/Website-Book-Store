@@ -1,0 +1,38 @@
+.note
+{
+    margin-top: 20px;
+    text-align: center;
+    width: 950px;
+    height: 80px;
+    background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+}
+.form-content
+{
+    width: 950px;
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+    margin-bottom: 20%;
+}
+.form-control{
+    border-radius:1.5rem;
+}
+.btnSubmit
+{
+    margin-left: 335px;
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    background: #0062cc;
+    color: #fff;
+}
+.register {
+    margin-left: 360px;
+    margin-top:30px;
+    font-size: 20px;
+}

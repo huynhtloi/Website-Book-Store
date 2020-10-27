@@ -1,0 +1,19 @@
+<div style="display:none">
+  <div id="dialog-form"></div>
+</div>
+<div id="wrapper" style="background-image: url('./assets/images/background_main.jpg');">
+  <script language="javascript">
+      function imgError(image) {
+          image.onerror = "";
+          image.src = "./assets/images/logo.gif";
+          return true;
+      }
+  </script>
+  <!-- Start header --->
+  <app-header></app-header>
+  <!-- Ed header --->
+  <!-- Start main menu --->
+  <app-top-menu-c></app-top-menu-c>
+  <!-- end main menu --->
+  <app-body></app-body>
+</div>

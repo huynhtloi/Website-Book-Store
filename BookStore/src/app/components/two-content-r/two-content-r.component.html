@@ -1,0 +1,178 @@
+<div class="content-r">
+  <!-- Ho tro yahoo -->
+  <script language="javascript">
+  function imgError(image) {
+    image.onerror = "";
+    image.src = "assets/images/offline.gif";
+    return true;
+  }
+
+  </script>
+  <div class="box-other">
+    <div class="title">
+      <span>
+        Hỗ trợ bán hàng trực tuyến
+      </span>
+    </div>
+    <!-- Danh sách yahoo hỗ trợ -->
+    <ul>
+      <li>
+        <div class="mobile-info">
+          <div class="mobile-c">
+            <span class="name">
+              <a style="color:#C90A0F" rel="nofollow" href="">
+                <span class="icon-name-web">Ⓛ</span> Huỳnh Tấn Lợi
+                <img width="22px" align="absmiddle" onerror='imgError(this);' border="0" src="assets/images/pikachoose/hotline.jpg">
+              </a>
+            </span>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="mobile-info">
+          <div class="mobile-c">
+            <span class="name">
+              <a style="color:#C90A0F" rel="nofollow" href="">
+                <span class="icon-name-web">Ⓝ</span> Thân Trọng Huỳnh Nhân
+                <img width="22px" align="absmiddle" onerror='imgError(this);' border="0" src="assets/images/pikachoose/hotline.jpg">
+              </a>
+            </span>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="mobile-info">
+          <div class="mobile-c">
+            <span class="name">
+              <a style="color:#C90A0F" rel="nofollow" href="">
+                <span class="icon-name-web">Ⓐ</span> Nguyễn Tuấn Anh
+                <img width="22px" align="absmiddle" onerror='imgError(this);' border="0" src="assets/images/pikachoose/hotline.jpg">
+              </a>
+            </span>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- End Danh sách yahoo hỗ trợ -->
+  </div>
+  <!-- end Ho tro yahoo -->
+  <style>
+  .row {
+    display: inline-block;
+    clear: both;
+    padding: 0px 10px 5px 10px;
+  }
+
+  .row .editor-label {
+    padding: 5px 0px 0px 0px;
+  }
+
+  .row .editor-field {
+    padding: 5px 0px 0px 0px;
+  }
+
+  </style>
+  <div class="box-other">
+  </div>
+  <!-- Quang cao -->
+  <div id="AD_Zone_3"></div>
+  <!-- end Quang cao -->
+  <!-- Danh muc dien thoai -->
+  <div class="box-device">
+    <h3><span>Nhà cung cấp</span></h3>
+    <div class="vmenu">
+      <ul class="news-category">
+        <li *ngFor="let provider of providers | slice:0:5">
+          <a [routerLink]="['/book']" [queryParams]="{type: 'provider', id: provider.id}">
+            {{provider.name}}
+          </a>
+        </li>
+        <ng-container *ngIf="checkProvider">
+          <ng-container *ngFor="let provider of providers; let i = index">
+            <li *ngIf="i >= 5">
+              <a [routerLink]="['/book']" [queryParams]="{type: 'provider', id: provider.id}">
+                {{provider.name}}
+              </a>
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
+      <div class="list-group-item list-group-show js-list-show" style="display: block;">
+        <!-- thêm lại sự kiện click ng if -->
+        <button (click)='toggleProvider()'><b>Xem thêm </b>
+          <fa-icon [icon] = 'setOnIconProvider()'></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- End Danh muc dien thoai -->
+  <!-- Quang cao 4,5 -->
+  <div id="AD_Zone_4"></div>
+  <div id="AD_Zone_5"></div>
+  <!-- Danh muc phu kien -->
+  <div class="box-device">
+    <h3><span>Công ty phát hành</span></h3>
+    <div class="vmenu">
+      <ul class="news-category">
+        <li *ngFor="let publisher of publishers | slice:0:5">
+          <a [routerLink]="['/book']" [queryParams]="{type: 'publisher', id: publisher.id}">
+            {{publisher.name}}
+          </a>
+        </li>
+        <ng-container *ngIf="checkPublisher">
+          <ng-container *ngFor="let publisher of publishers; let i = index">
+            <li *ngIf="i >= 5">
+              <a [routerLink]="['/book']" [queryParams]="{type: 'publisher', id: publisher.id}">
+                {{publisher.name}}
+              </a>
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
+      <div class="list-group-item list-group-show js-list-show" style="display: block;">
+        <!-- thêm lại sự kiện click ng if -->
+        <button (click) = 'togglePublisher()'><b>Xem thêm </b>
+          <fa-icon [icon]='setOnIconPublisher()'></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- End Danh muc phu kien -->
+  <div id="AD_Zone_6"></div>
+  <div id="AD_Zone_7"></div>
+  <!-- Dien thoai duoc xem nhieu -->
+  <!-- c:set var="mostViewList" value="[entity.DienThoai@7ce8f9f4, entity.DienThoai@6de966e4, entity.DienThoai@1ef9fbff, entity.DienThoai@17322377, entity.DienThoai@2c2e4f3c, entity.DienThoai@a56c21b, entity.DienThoai@5b21e6ad, entity.DienThoai@5d0e5f25, entity.DienThoai@387ac17, entity.DienThoai@3f7de066]"/-->
+  <div class="box-other">
+    <div class="title">
+      <span>Top 10 sách được xem nhiều</span>
+    </div>
+    <!-- danh sach cac dien thoai duoc xem nhieu-->
+    <ul>
+      <li class="alt1" *ngFor="let featureBook of featureBooks | slice:0:9">
+        <div class="mobile-info">
+          <div class="mobile-c">
+            <a class="image" [routerLink]="['/detail']" [queryParams]="{id: featureBook.id}">
+              <img src="{{featureBook.img}}" alt="HTC One - FPT" />
+            </a>
+            <div class="info">
+              <span class="name">
+                <a [routerLink]="['/detail']" [queryParams]="{id: featureBook.id}">{{featureBook.name}}
+                </a>
+              </span>
+              <span class="price">
+                <span class="price-value">
+                  {{featureBook.price | currency: '':'':'1.0-3'}} VNĐ
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- end danh sach -->
+  </div>
+  <!-- End Dien thoai duoc xem nhieu -->
+  <!-- Quảng cáo 8 -->
+  <div id="AD_Zone_8"></div>
+  <!-- End Quảng cáo 8 -->
+</div>

@@ -1,0 +1,12 @@
+.mobile-info table td {
+	width: 300px;
+}
+
+.mobile-info table td.label {
+	background-color: #fafafa;
+	border: none;
+}
+
+a.a-add-book-cart:hover {
+	cursor: pointer;
+}

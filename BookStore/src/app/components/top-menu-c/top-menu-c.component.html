@@ -1,0 +1,42 @@
+  <div id="top-menu-c">
+      <div id="top-menu">
+          <ul>
+              <li class="first">
+                  <a href=""><span>Trang chủ</span></a>
+              </li>
+              <li>
+                  <a [routerLink]="['/search']"><span>Sách</span></a>
+              </li>
+              <li>
+                  <a [routerLink]="['/book']"
+                     [queryParams] = "{type: 'sale'}"><span>Sách khuyến mãi</span></a>
+              </li>
+              <li>
+                  <a [routerLink]="['/book']"
+                     [queryParams] = "{type: 'bestseller'}"><span>Bán chạy</span></a>
+              </li>
+              <li>
+                  <a [routerLink]="['/question']"><span>Hỏi đáp</span></a>
+              </li>
+<!--               <li>
+                  <a href=""><span>Giới thiệu</span></a>
+              </li>
+              <li>
+                  <a href=""><span>Liên hệ</span></a>
+              </li> -->
+              <li>
+                  <a [routerLink]="['/help']"><span>Hướng dẫn đặt hàng online</span></a>
+              </li>
+              <li *ngIf="UserService.isUserLoggedIn()">
+                  <a [routerLink]="['/cart']"><span>Giỏ hàng</span></a>
+              </li>
+              <li *ngIf="!UserService.isUserLoggedIn()">
+                  <a [routerLink]="['/login']"><span>Đăng nhập</span></a>
+              </li>
+              <li *ngIf="UserService.isUserLoggedIn()">
+                  <a [routerLink]="['/logout']"><span>Đăng xuất</span></a>
+              </li>
+
+          </ul>
+      </div>
+  </div>

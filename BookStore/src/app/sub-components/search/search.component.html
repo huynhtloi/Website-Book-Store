@@ -1,0 +1,77 @@
+<div id="content">
+  <!-- box left -->
+  <app-one-content-l></app-one-content-l>
+  <!-- /box left -->
+  <!-- box right -->
+  <div class="content-r">
+    <div class="box-brand">
+      <div class="filter">
+        <form method="get" id="search-simple" name="search-simple">
+          <ul>
+            <li>
+              <input type="text" name="Keyword" id="Keyword" value="Tên sách" onfocus="if(this.value=='Tên sách') this.value='';" onblur="if(this.value=='') this.value='Tên sách';" [(ngModel)]="searchName" class='filterSearch'/>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li>
+              <button class="btn-light" (click) = 'searchBook()'>
+                Tìm Kiếm
+              </button> 
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+    <div class="box-brand">
+      <div class="header2">
+        <span class="title">
+          <span *ngIf="undefined !== books && books.length"><a href="">tìm được {{books.length}} kết quả</a></span>
+        </span>
+      </div>
+      <div class="content">
+        <div class="content-c">
+          <table class="list-mobile" width="100%">
+            <tr *ngFor="
+                let row of books 
+                | divideArrayData: 3 
+                | paginate: { itemsPerPage: 2, currentPage: page }">
+              <ng-container *ngFor="let book of row | filter:resultName">
+                <td class="image">
+                  <a class="image-mobile" title=""
+                      [routerLink]="['/detail']"
+                      [queryParams] = "{id: book.id}">
+                    <img src="{{book.img}}" width="120%">
+                  </a>
+                </td>
+                <td class="info">
+                  <span class="name"><a title=""
+                        [routerLink]="['/detail']"
+                        [queryParams] = "{id: book.id}">{{book.name}}</a></span>
+                  <ul>
+                    <li>Tác giả: {{book.author}}</li>
+                    <li>Đã gồm <b style="color:red;">10 %</b> VAT.</li>
+                  </ul>
+                  <p><br>
+                    <span class="price">
+                      <span class="price-value">
+                        {{book.price | currency : '' : '' : '1.0-3'}} VNĐ
+                      </span>
+                    </span>
+                  </p>
+                </td>
+              </ng-container>
+          </table>
+        </div>
+        <!-- phân trang -->
+        <pagination-controls (pageChange)="handlePageChange($event)"
+          previousLabel=""
+          nextLabel="">
+        </pagination-controls>
+
+      </div>
+    </div>
+  </div>
+  <!-- box right -->
+</div>

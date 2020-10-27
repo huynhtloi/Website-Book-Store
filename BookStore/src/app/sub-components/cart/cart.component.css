@@ -1,0 +1,11 @@
+table.mobile-price th {
+	text-align: center;
+}
+.deleteItemCart {
+	border: none;
+	background-color: white;
+}
+.Cart {
+	text-decoration: none;
+	color: black;
+}

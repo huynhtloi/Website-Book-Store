@@ -1,0 +1,8 @@
+div.list-group-item button:hover {
+	cursor: pointer;
+}
+
+div.list-group-item {
+	background-color: #ffffff;
+	border: none;
+}

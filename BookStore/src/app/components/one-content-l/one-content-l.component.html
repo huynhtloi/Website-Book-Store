@@ -1,0 +1,52 @@
+<div class="content-l">
+  <!--     <div class="header-blue">
+      <span class="title">Danh mục sách</span>
+      <ul class="brands">
+        <li><a href="">English books</a></li>
+        <li><a href="">Quà lưu niệm</a></li>
+        <li><a href="">Sách tiếng việt</a></li>
+        <li><a href="">Văn phòng phẩm</a></li>
+        <div class="list-group-item list-group-show js-list-show" style="display: block;">
+          <a href="#"><b>Xem thêm </b>
+            <fa-icon [icon]="faAngleDown"></fa-icon>
+          </a>
+        </div>
+      </ul>
+    </div> -->
+  <div class="header-blue">
+    <span class="title">Miễn phí giao hàng</span>
+    <ul class="brands">
+      <!-- add entity ship into book table -->
+      <li><a [routerLink]="['/book']" [queryParams]="{type: 'freeship', id: '1'}">Có</a></li>
+      <li><a [routerLink]="['/book']" [queryParams]="{type: 'freeship', id: '0'}">Không</a></li>
+    </ul>
+  </div>
+  <div class="header-blue">
+    <span class="title">Tác giả</span>
+    <ul class="brands">
+      <ng-container *ngFor="let author of authors | slice : 0 : 6">
+        <li>
+          <a [routerLink]="['/book']" [queryParams]="{type: 'author', id: author.id}">
+            {{author.name}}
+          </a>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="check">
+        <ng-container *ngFor="let author of authors; let i = index">
+          <li *ngIf="i >= 6">
+            <a [routerLink]="['/book']" [queryParams]="{type: 'author', id: author.id}">
+              {{author.name}}
+            </a>
+          </li>
+        </ng-container>
+      </ng-container>
+      <div class="list-group-item list-group-show js-list-show" style="display: block;">
+        <!-- thêm lại sự kiện click ng if -->
+        <button (click)="toggle()"><b>Xem thêm </b>
+          <fa-icon [icon]="setOnIcon()"></fa-icon>
+        </button>
+      </div>
+    </ul>
+  </div>
+  <!--  Insert Phone Company -->
+</div>

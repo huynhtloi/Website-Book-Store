@@ -1,0 +1,1 @@
+[{"id":"EVHczU7ik5hYo0sD","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","timestamp":"2020-10-26T16:18:26.248Z","body":"SELECT id, access, name, pass, role, username\n  FROM book_store.admin\n  LIMIT 500;"}]

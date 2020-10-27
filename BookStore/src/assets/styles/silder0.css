@@ -1,0 +1,104 @@
+.slides_container {
+    width:768px;
+    height:320px;
+}
+.slides_container div.mobileHot {
+    height: 320px;
+    width: 768px;
+    display:block;
+    background:#fff;
+}
+.mobileHot img {height:320px; width:768px;}
+.mobileHot .info {float:left; padding:10px 10px;}
+.mobileHot .info span {display:inline-block; clear:both;}
+.mobileHot .info span.title {font-size:18px; font-weight:bold; color:#0a66a6; text-shadow:#76BFF7 0px 0px 1px; margin-bottom:10px; width:100%;}
+.mobileHot .info span.price {margin-bottom:10px; width:100%;}
+.mobileHot .info span.price-label {font-size:14px; font-weight:bold; color:#555; float:left; margin-right:5px; display:block; clear:none; padding-top:1px;}
+.mobileHot .info span.price-value {font-size:16px; font-weight:bold; color:#C90A0F; float:left;  display:block; clear:none;}
+.mobileHot .info div.details ul li {padding:5px 0px 3px 15px; background:url(../images/bullet-1.png) 2px 7px no-repeat; text-align:justify;}
+#example {
+ /*   border: 1px solid #CCCCCC;*/
+    clear: both;
+    display: inline-block;
+    height: 320px;
+    position: relative;
+    width: 768px;
+}
+#ribbon {
+	position:absolute;
+	top:-3px;
+	left:-15px;
+	z-index:500;
+}
+#frame {
+    height: 380px;
+    left: -57px;
+    position: absolute;
+    top: -3px;
+    width: 886px;
+    z-index: 0;
+}
+#slides {
+    /*left: 45px;*/
+    position: relative;
+    /*top: 17px;*/
+    z-index: 100;
+}
+
+
+.slides_container {
+	width:768px;
+	overflow:hidden;
+	position:relative;
+	display:none;
+}
+
+/*
+	Next/prev buttons
+*/
+
+#slides .next,#slides .prev {
+	position:absolute;
+	top:140px;
+	width:24px;
+	height:43px;
+	display:block;
+	z-index:101;
+}
+
+#slides .next {
+	left:740px;
+}
+
+/*
+	Pagination
+*/
+
+.pagination {
+	visibility: hidden;
+    left: 328px;
+    margin: 26px auto 0;
+    position: relative;
+    top: -41px;
+    width: 140px;
+    z-index: 9;
+}
+.pagination li {
+	float:left;
+	margin:0 1px;
+	list-style:none;
+}
+
+.pagination li a {
+	display:block;
+	width:12px;
+	height:0;
+	padding-top:12px;
+	background-position:0 0;
+	float:left;
+	overflow:hidden;
+}
+
+.pagination li.current a {
+	background-position:0 -12px;
+}

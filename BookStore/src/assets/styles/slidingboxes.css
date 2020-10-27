@@ -1,0 +1,56 @@
+﻿
+			a{ color:#C8DCE5; }
+			h3{ margin: 10px 10px 0 10px; color:#000; font:18pt Arial, sans-serif; letter-spacing:-1px; font-weight: bold;  }
+			.box-boxgrid-container
+			{
+              float: left;
+              font-family: Arial, Helvetica, sans-serif;
+                    padding: 9px;
+                    width: 235px;
+                    background:#fff;
+			}
+			.boxgrid{
+				border: 1px solid #AAAAAA;
+                height: 230px;
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+			}
+				.boxgrid img{
+					position: absolute;
+					top: 0;
+					left: 0;
+					border: 0;
+					width:235px;
+				}
+				.boxgrid p{
+					padding: 0 10px;
+					color:black;
+					font-weight:bold;
+					font:10pt "Lucida Grande", Arial, sans-serif;
+				}
+				.boxgrid h3{
+					font-size: 25px;
+					color: #404445;
+				}
+
+			.boxcaption{
+				float: left;
+				position: absolute;
+				background: #eee;
+				height: 120px;
+				width: 100%;
+				opacity: .8;
+				/* For IE 5-7 */
+				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+				/* For IE 8 */
+				-MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+ 			}
+ 				.captionfull .boxcaption {
+ 					/*top: 260;*/
+ 					left: 0;
+ 				}
+ 				.caption .boxcaption {
+ 					top: 190px;
+ 					left: 0;
+ 				}

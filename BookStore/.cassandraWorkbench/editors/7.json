@@ -1,0 +1,1 @@
+{"id":"2N5RWd14iHfGZBsm","body":"  SELECT id, author, bestselling, cover, description, feature, height, img, name,\n  newbook, page, price, provider, publisher, sale, sku, width\n  FROM book_store.book\n  LIMIT 500;","filename":"script_10.cql","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","source":"action","modified":true}

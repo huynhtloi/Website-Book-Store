@@ -1,0 +1,262 @@
+<div id="content">
+  <!-- box left -->
+  <app-one-content-l></app-one-content-l>
+  <!-- /box left -->
+  <!-- box right -->
+  <div class="content-r">
+    <!-- Navigation -->
+    <div class="nav">
+      <ul class="left">
+        <li><a href="">Trang chủ</a></li>
+        <li><span> » </span></li>
+        <li><a [routerLink]="['/search']">Sách</a></li>
+        <li><span> » </span></li>
+        <li><a class="actived">{{book.name}}</a></li>
+      </ul>
+      <ul class="right">
+        <li>Lượt xem: <b>122</b></li>
+      </ul>
+    </div>
+    <div class="header-info">
+      <div class="info-left">
+        <div class="pikachoose">
+          <ul id="pikame" class="jcarousel-skin-pika">
+            <li>
+              <a ref="lightbox" target="_blank" href="" class="slide"><img src="{{book.img}}" width="120%" />
+              </a>
+            </li>
+            <!--             <li>
+              <a ref="lightbox" target="_blank" href="" class="slide"><img src="assets/images/Phones/Details/Galaxy_S4_I9500_2.jpg" />
+              </a>
+            </li>
+            <li>
+              <a ref="lightbox" target="_blank" href="" class="slide"><img src="assets/images/Phones/Details/Galaxy_S4_I9500_3.jpg" />
+              </a>
+            </li> -->
+          </ul>
+        </div>
+        <div style="padding:10px; text-align:center;">
+          <a (click)="onAddBookToCart(book.id,book.price)" class="a-add-book-cart">
+            <img src="assets/images/dathang_2.gif" />
+          </a>
+          <a target="_blank" [routerLink]="['/help']" title="Hướng dẫn đặt mua sách">
+            <img src="assets/images/huongdan_dathang.gif" />
+          </a>
+        </div>
+        <div class="alert alert-success alert-dismissible" *ngIf="showAlert">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {{meesageAlert}}
+        </div>
+      </div>
+      <div class="info-right">
+        <div class="left">
+          <h1>
+            {{book.name}}
+          </h1>
+          <div class="quick-info">
+            <ul>
+              <li><span>Giá tiền:&nbsp;</span><span class="price">
+                  {{book.price | currency : '' : '' : '1.0-3'}} VNĐ
+                </span>
+              </li>
+              <li><i>Giá trên đã bao gồm <b style="color:red;">10 %</b> VAT.</i></li>
+              <li><span>Nhà phân phối:</span>
+                <a [routerLink]="['/book']" 
+                    [queryParams] = "{type: 'provider', id: book.provider}">
+                  {{provider}}
+                </a>
+              </li>
+              <li><span>Nhà xuất bản:</span>
+                <a [routerLink]="['/book']"
+                    [queryParams] = "{type: 'publisher', id: book.publisher}">
+                  {{publisher}}
+                </a>
+              </li>
+              <li>
+                <span>Kho hàng:</span><a>
+                  Còn hàng
+                </a>
+              </li>
+              <li>
+                <span>Có bán tại:</span>
+                <ul class="clear">
+                  <a>
+                    <li>
+                      <span>392 cầu giấy - 0968.32.33.99</span>
+                    </li>
+                    <li>
+                      <span>194 Lê duẩn - 043.518.6033</span>
+                    </li>
+                    <li>
+                      <span>122 Thái Hà - 0973.79.0122</span>
+                    </li>
+                    <li>
+                      <span>382 Nguyễn Văn Cừ - 0125.363.2222</span>
+                    </li>
+                  </a>
+                </ul>
+              </li>
+              <li><span>Đảm bảo</span> chính sách giao hàng nhanh nhất</li>
+            </ul>
+          </div>
+        </div>
+        <!-- End left -->
+        <div class="right">
+          <div class="title">
+            <span>Sản phẩm cùng nhà phân phối</span>
+          </div>
+          <ul>
+            <li>
+              <div class="info"
+                  *ngFor="let bookProvider of bookProviders | slice : 0 : 5">
+                <span class="name">
+                  <a
+                    [routerLink]="['/detail']"
+                    [queryParams] = "{id: bookProvider.id}"
+                  >
+                    {{bookProvider.name}}
+                  </a>
+                </span>
+                <span class="price">
+                  <span class="price-value">
+                    {{bookProvider.price | currency : '' : '' : '1.0-3'}}
+                  </span>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- End right -->
+        <!-- yahoo -->
+        <div class="box-ym" style="display:inline-block; clear:both; background:#FFFB98; width:100%; padding:5px 0px;">
+          <b style="font-weight:bold;">Hỗ trợ bán hàng:</b>
+          <a style="color:#C90A0F" rel="nofollow" href="">
+            Huỳnh Tấn lợi
+          </a>
+          |
+          <a style="color:#C90A0F" rel="nofollow" href="">
+            Thân Trọng Huỳnh Nhân
+          </a>
+          |
+          <a style="color:#C90A0F" rel="nofollow" href="">
+            Nguyễn Tuấn Anh
+          </a>
+          |
+        </div>
+        <!-- yahoo -->
+      </div>
+    </div>
+    <!-- end header-info -->
+    <ul class="tabs-mobile">
+      <li><a class="active" href="javascript:switchTabs(0);" id="link-0"><span><b>Thông tin chi tiết</b></span></a>
+      </li>
+      <li><a href="javascript:switchTabs(1);" id="link-1"><span><b>Mô tả sản phẩm</b></span></a>
+      </li>
+      <li><a href="javascript:switchTabs(2);" id="link-2"><span><b>Các cửa hàng</b></span></a>
+      </li>
+      <li><a href="javascript:switchTabs(3);" id="link-3"><span><b>Hướng dẫn sử dụng</b></span></a></li>
+    </ul>
+    <!-- Thong tin dien thoai - 5 tab -->
+    <div class="tabs-content" id="tab-container">
+      <!-- Tab 1 - Tinh nang -->
+      <div id="tabs-0" class="tabs-details">
+        <table class="mobile-info">
+          <tr>
+            <td class="group">Thông tin cơ bản</td>
+            <td>
+              <table>
+                <tr>
+                  <td class="label">SKU:</td>
+                  <td>
+                    {{book.sku}}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label">Tác giả:</td>
+                  <td>
+                    {{book.author}}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label">Loại bìa:</td>
+                  <td>
+                    {{book.cover}}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label">Số trang:</td>
+                  <td>
+                    {{book.page}}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label">Nhà cung cấp:</td>
+                  <td>
+                    {{provider}}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label">Nhà xuất bản:</td>
+                  <td>
+                    {{publisher}}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <table class="mobile-info">
+          <tr>
+            <td class="group">Kích thước</td>
+            <td>
+              <table>
+                <tr>
+                  <td class="label">Chiều dài <i>(cm)</i></td>
+                  <td>
+                    {{book.height}} (cm)</td>
+                </tr>
+                <tr>
+                  <td class="label">Chiều rộng <i>(cm)</i></td>
+                  <td>
+                    {{book.width}} (cm)</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="tabs-1" class="tabs-details" style="display:none;">
+        <p class="title">{{book.name}}</p>
+        <p class="description">
+          {{book.description}}
+        </p>
+      </div>
+      <div id="tabs-2" class="tabs-details" style="display:none;">
+        <ul class="list-details">
+          <li class="group1"><span><b><i>H&#224; nội</i></b></span></li>
+          <li class="group2"><span><b>Quận Hai B&#224; Trưng <i>(1)</i></b></span></li>
+          <li class="item">
+            <p><strong>Trung t&#226;m bảo h&#224;nh Samsung - Chi nh&#225;nh C&#244;ng ty Hồng
+                Quang</strong>
+            </p>
+            <p>Điện thoại: 04-39743988 - 84 1900 555 567</p>
+            <p>Địa chỉ: 184 - 186 Triệu Việt Vương, P.B&#249;i Thị Xu&#226;n, Q.Hai B&#224; Trưnng,
+              H&#224; Nội
+            </p>
+            <p>Giờ làm việc: Từ 8h - 17h30 (trừ chủ nhật &amp; ng&#224;y lễ)</p>
+          </li>
+        </ul>
+      </div>
+      <div id="tabs-3" class="tabs-details" style="display:none;">
+        <p class="title">Hướng dẫn sử dụng</p>
+        <ul class="list-details">
+          <li style="list-style:disc">
+            <a [routerLink]="['/help']">
+              <b>Hướng dẫn đặt hàng online</b>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

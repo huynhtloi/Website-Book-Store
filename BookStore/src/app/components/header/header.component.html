@@ -1,0 +1,21 @@
+  <div id="header">
+      <div id="head">
+          <div id="logo">
+              <a href=""><img src="./assets/images/logo.gif" alt="LNA BookStore"
+                                            onerror='imgError(this);'/></a>
+          </div>
+          <div id="top-search">
+                <span class="input">
+                <input type="text" name="top-keyword" id="top-keyword" value="Từ khóa tìm kiếm"
+                       onfocus="if(this.value=='Từ khóa tìm kiếm') this.value='';"
+                       onblur="if(this.value=='') this.value='Từ khóa tìm kiếm'"
+                       [(ngModel)]='key'/>
+                </span>
+              <span class="submit">
+                <a href="javascript:Search();"
+                  [routerLink]="['/search']"
+                  [queryParams] = "{key: key}">Tìm kiếm</a>
+                </span>
+          </div>
+      </div>
+  </div>

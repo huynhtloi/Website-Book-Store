@@ -1,0 +1,130 @@
+<div id="content">
+  <!-- box left -->
+  <app-buy-content-l></app-buy-content-l>
+  <!-- /box left -->
+  <!-- box right -->
+  <div class="content-r">
+    <style>
+      .mobile-price .item { vertical-align:middle}
+                    .mobile-price .item p{ line-height:150%;}
+                </style>
+    <div class="nav">
+      <ul class="left">
+        <li><a href="">Trang chủ</a></li>
+        <li><span> » </span></li>
+        <li><a class="actived" [routerLink]="['/cart']">Giỏ hàng</a></li>
+      </ul>
+      <ul class="right">
+      </ul>
+    </div>
+    <div class="header-info">
+      <form>
+        <table class="mobile-price" cellspacing="1">
+          <tbody>
+            <tr>
+              <th style="width:100px">
+                Ảnh
+              </th>
+              <th style="width:50px">
+                Sản phẩm
+              </th>
+              <th style="width:100px">
+                Nhà vận chuyển
+              </th>
+              <th>Phí giao hàng</th>
+              <th style="width:90px;">
+                Giá tiền
+              </th>
+              <th style="width:20px;">
+                SL
+              </th>
+              <th style="width:100px;">
+                Thành tiền
+              </th>
+              <th style="width:30px;">Xóa</th>
+            </tr>
+            <tr class="odd" *ngFor="let cart of carts 
+                    | paginate: { itemsPerPage: 3, currentPage: page }">
+              <ng-container *ngFor="let book of books">
+                <ng-container *ngFor="let item of items">
+                  <ng-container *ngIf="cart.idbook == book.id && book.id == item.book.id">
+                    <td class="item">
+                      <a class="image-mobile" title="{{book.name}}" style="
+                              background:url('{{book.img}}') no-repeat 43% 40%;
+                              background-size: 150px 200px;">
+                      </a>
+                    </td>
+                    <td class="item">
+                      <strong style="font-weight:bold;">
+                        <a [routerLink]="['/detail']" [queryParams]="{id: book.id}">{{book.name}}</a>
+                      </strong>
+                    </td>
+                    <td class="item">
+                      <select class="form-control" (click)='receiveSelected($event,book,shippers)'>
+                        <option value="0">Nhà vận chuyển</option>
+                        <option value="{{shipper.id}}" *ngFor="let shipper of shippers">
+                          {{shipper.name}}
+                        </option>
+                      </select>
+                    </td>
+                    <!-- Error -->
+                    <td class="item">
+                      <div>
+                        <span class="price-value">{{item.shipperPriceSelected}} VNĐ</span>
+                      </div>
+                    </td>
+                    <td class="item">
+                      <span class="price-value">{{book.price | currency:'':'':'1.0-3'}} VNĐ</span>
+                    </td>
+                    <td class="item">
+                      <input type="text" value="{{cart.amount}}" name="Number_Mobile_9" style="width:30px;" (change)="enterAmount($event,book,shippers)">
+                    </td>
+                    <td class="item">
+                      <span class="price-value">
+                        {{cart.amount * book.price + item.shipperPriceSelected | currency:'':'':'1.0-3'}} VNĐ
+                      </span>
+                    </td>
+                    <td class="item">
+                      <button (click)='deleteItemBook(cart.id)' class="deleteItemCart">
+                        <a href="cart">Xóa</a>
+                      </button>
+                    </td>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+            </tr>
+            <tr>
+              <td colspan="8">
+                <p>
+                  <b>Tổng tiền</b>: <span class="price-value">
+                    {{allprice | currency : '' : '' : '1.0-3'}} VNĐ
+                  </span>
+                  <i style="font-style:italic"></i>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="8">
+                <!-- phân trang -->
+                <pagination-controls (pageChange)="handlePageChange($event)" previousLabel="" nextLabel="">
+                </pagination-controls>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="submit" style="padding:10px; 0px;">
+          <input type="button" value="Cập nhật tổng tiền" (click)='updateAllPrice()'> &nbsp;
+          <button (click)='addCartToBuy()'>Thực hiện đặt hàng</button> &nbsp;
+          <button><a href="cart" class="Cart" (click)='deleteAllCart()'>Xóa tất cả sản phẩm</a></button> &nbsp;
+          <input type="button" value="Hướng dẫn đặt hàng" [routerLink]="['/help']"> &nbsp;
+          <input type="button" value="Tiếp tục mua hàng" [routerLink]="['']">
+        </p>
+      </form>
+      <div class="alert alert-success alert-dismissible" *ngIf="showAlert">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{meesageAlert}}
+      </div>
+    </div>
+  </div>
+  <!-- box right -->
+</div>

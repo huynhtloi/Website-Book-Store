@@ -1,0 +1,18 @@
+h3.title-help {
+	color: #4B8EFC;
+	font-family: Verdana, Geneva, sans-serif;
+	text-align: center;
+}
+
+.title-one-content-help, .title-two-content-help, .title-three-content-help, .title-four-content-help {
+	color: #4B8EFC;
+	font-size: 17px;
+}
+
+.one-content-help, .two-content-help, .three-content-help, .four-content-help {
+	font-size: 15px;
+	margin: 30px;
+	line-height: 30px;
+	text-align: justify;
+	font-family: Verdana, Geneva, sans-serif;
+}

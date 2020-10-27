@@ -1,0 +1,119 @@
+  <div class="content-l">
+    <div class="box-brand">
+      <div class="header2">
+        <span class="title"><span><a href="">Sách mới</a></span></span>
+      </div>
+      <div class="content">
+        <div class="content-c">
+          <table class="list-mobile" width="100%">
+            <tr *ngFor="let row of newBooks | divideArrayData: 3">
+              <ng-container *ngFor="let book of row">
+                <td class="image">
+                  <a class="image-mobile" title="" 
+                      [routerLink]="['/detail']" 
+                      [queryParams] = "{id: book.id}">
+                    <img src="{{book.img}}" 
+                        width="120%">
+                  </a>
+                </td>
+                <td class="info">
+                  <span class="name"><a title="" 
+                        [routerLink]="['/detail']"
+                        [queryParams] = "{id: book.id}">{{book.name}}</a></span>
+                  <ul>
+                    <li>Tác giả: {{book.author}}</li>
+                    <li>Đã gồm <b style="color:red;">10 %</b> VAT.</li>
+                  </ul>
+                  <p><br>
+                    <span class="price">
+                      <span class="price-value">
+                        {{book.price | currency : '' : '' : '1.0-3'}} VNĐ
+                      </span>
+                    </span>
+                  </p>
+                </td>
+              </ng-container>
+            </tr>      
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="box-brand">
+      <div class="header2">
+        <span class="title"><span><a href="">Giảm giá</a></span></span>
+      </div>
+        <div class="content">
+          <div class="content-c">
+            <table class="list-mobile" width="100%">
+              <tr *ngFor="let row of saleBooks | divideArrayData: 3">
+                <ng-container *ngFor="let book of row">
+                  <td class="image">
+                    <a class="image-mobile" title="" 
+                        [routerLink]="['/detail']"
+                        [queryParams] = "{id: book.id}">
+                      <img src="{{book.img}}" 
+                          width="120%">
+                    </a>
+                  </td>
+                  <td class="info">
+                    <span class="name"><a title="" 
+                          [routerLink]="['/detail']"
+                          [queryParams] = "{id: book.id}">{{book.name}}</a></span>
+                    <ul>
+                      <li>Tác giả: {{book.author}}</li>
+                      <li>Đã gồm <b style="color:red;">10 %</b> VAT.</li>
+                    </ul>
+                    <p><br>
+                      <span class="price">
+                        <span class="price-value">
+                          {{book.price | currency : '' : '' : '1.0-3'}} VNĐ
+                        </span>
+                      </span>
+                    </p>
+                  </td>
+                </ng-container>
+              </tr>      
+            </table>
+          </div>
+        </div>
+    </div>
+    <div class="box-brand">
+      <div class="header2">
+        <span class="title"><span><a href="">Bán chạy</a></span></span>
+      </div>
+        <div class="content">
+          <div class="content-c">
+            <table class="list-mobile" width="100%">
+              <tr *ngFor="let row of books | divideArrayData: 3">
+                <ng-container *ngFor="let book of row">
+                  <td class="image">
+                    <a class="image-mobile" title="" 
+                        [routerLink]="['/detail']"
+                        [queryParams] = "{id: book.id}">
+                      <img src="{{book.img}}" 
+                          width="120%">
+                    </a>
+                  </td>
+                  <td class="info">
+                    <span class="name"><a title="" 
+                          [routerLink]="['/detail']"
+                          [queryParams] = "{id: book.id}">{{book.name}}</a></span>
+                    <ul>
+                      <li>Tác giả: {{book.author}}</li>
+                      <li>Đã gồm <b style="color:red;">10 %</b> VAT.</li>
+                    </ul>
+                    <p><br>
+                      <span class="price">
+                        <span class="price-value">
+                          {{book.price | currency : '' : '' : '1.0-3'}} VNĐ
+                        </span>
+                      </span>
+                    </p>
+                  </td>
+                </ng-container>
+              </tr>      
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
