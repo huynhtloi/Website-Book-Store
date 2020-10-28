@@ -40,6 +40,9 @@ export class ContactComponent implements OnInit {
 				this.messageAlert = 'Gửi yêu cầu thành công';
 				setTimeout(() => this.isVisible = false, 1000);
 			}, error => {
+				if (this.isVisible) {
+					return;
+				}
 				this.isVisible = true;
 				this.messageAlert = 'Gửi yêu cầu thất bại';
 				setTimeout(() => this.isVisible = false, 1000);

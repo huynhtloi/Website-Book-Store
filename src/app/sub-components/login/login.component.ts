@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription,forkJoin } from 'rxjs';
+import { Subscription, forkJoin } from 'rxjs';
 import { UserService } from './../../services/user.service';
 
 @Component({
@@ -10,12 +10,15 @@ import { UserService } from './../../services/user.service';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-	public title : string = 'Đăng nhập hệ thống';
-	public username:string = '';
-	public password:string = '';
-	public invalidLogin:boolean = false;
+	public title: string = 'Đăng nhập hệ thống';
+	public username: string = '';
+	public password: string = '';
+	public invalidLogin: boolean = false;
 
-	public Subscription : Subscription;
+	public isVisible: boolean = false;
+	public messageAlert: string = '';
+
+	public Subscription: Subscription;
 
 	constructor(
 		private router: Router,
@@ -26,19 +29,38 @@ export class LoginComponent implements OnInit, OnDestroy {
 	}
 
 	checkLogin() {
-		this.Subscription = this.UserService.getByUsername(this.username).subscribe(data => {
-			if (btoa(this.password) == data[0]['pass']) {
-				sessionStorage.setItem('username', this.username);
-				sessionStorage.setItem('iduser', data[0]["id"]);
-				this.router.navigate(['']);
-				this.invalidLogin = false;
-			} else {
+		if (this.username == '' || this.password == '') {
+			this.isVisible = true;
+			this.messageAlert = 'Vui lòng điền đầy đủ thông tin';
+			setTimeout(() => this.isVisible = false, 1000);
+		}
+		else {
+			this.Subscription = this.UserService.getByUsername(this.username).subscribe(data => {
+				if (btoa(this.password) == data[0]['pass']) {
+					sessionStorage.setItem('username', this.username);
+					sessionStorage.setItem('iduser', data[0]["id"]);
+					this.router.navigate(['']);
+					this.invalidLogin = false;
+				} else {
+					this.invalidLogin = true;
+					if (this.isVisible) {
+						return;
+					}
+					this.isVisible = true;
+					this.messageAlert = 'Đăng nhập thất bại';
+					setTimeout(() => this.isVisible = false, 1000);
+				}
+			}, error => {
+				this.UserService.handleError(error);
 				this.invalidLogin = true;
-			}
-		}, error => {
-			this.UserService.handleError(error);
-			this.invalidLogin = true;
-		});
+				if (this.isVisible) {
+					return;
+				}
+				this.isVisible = true;
+				this.messageAlert = 'Đăng nhập thất bại';
+				setTimeout(() => this.isVisible = false, 1000);
+			});
+		}
 	}
 
 	ngOnDestroy() {

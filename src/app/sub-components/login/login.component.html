@@ -20,6 +20,9 @@
       <div class="register">
         <p><a [routerLink]="['/signup']">Not a Account</a></p>
       </div>
+      <div class="alert" [class.visible]="isVisible">
+        {{messageAlert}}
+      </div>
     </div>
   </div>
 </div>

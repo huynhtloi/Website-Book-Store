@@ -41,9 +41,8 @@
         </div>
         <button type="submit" class="btnSubmit" [disabled]="!register.valid">Đăng ký</button>
         <br>
-        <div class="alert alert-success alert-dismissible" *ngIf="showAlert">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          {{meesageAlert}}
+        <div class="alert" [class.visible]="isVisible">
+          {{messageAlert}}
         </div>
       </div>
     </div>
