@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+	selector: 'app-contact',
+	templateUrl: './contact.component.html',
+	styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+	public isVisible: boolean = false;
+	constructor() { }
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+	}
+
+	showAlert(): void {
+		if (this.isVisible) {
+			return;
+		}
+		this.isVisible = true;
+		setTimeout(() => this.isVisible = false, 1000);
+	}
 
 }

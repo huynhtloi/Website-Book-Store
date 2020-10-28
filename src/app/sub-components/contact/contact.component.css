@@ -1,0 +1,36 @@
+.panel-title {
+  text-align: center;
+}
+
+.body-contact {
+  margin-left: 250px;
+}
+
+h3.panel-title {
+  font-size: 30px;
+}
+
+button#send-contact {
+  margin-left: 420px;
+  width: 100px;
+}
+
+.alert { 
+  text-align: center;
+  margin-top: -40px;
+  top: 0;
+  right: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  padding: 2rem;
+  background: #fff;
+  color: #f65656;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(1.25rem);
+}

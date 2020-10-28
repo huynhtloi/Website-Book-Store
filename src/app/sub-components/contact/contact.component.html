@@ -1,0 +1,29 @@
+<div class="panel panel-info">
+  <div class="panel-heading" style="margin-top: 30px">
+    <h3 class="panel-title">HỎI ĐÁP</h3>
+  </div>
+  <div class="body-contact" style="margin-top: 30px">
+    <div class="panel-body">
+      <label for="input-id" class="col-sm-2">Họ tên:</label>
+      <input type="text" name="" placeholder="Your name" style="width: 300px">
+    </div>
+    <div class="panel-body">
+      <label for="input-id" class="col-sm-2">Email:</label>
+      <input type="text" name="" placeholder="Your email" style="width: 300px">
+    </div>
+    <div class="panel-body">
+      <label for="input-id" class="col-sm-2">Message:</label>
+      <textarea type="text" placeholder="Your question" style="width: 300px"></textarea>
+    </div>
+  </div>
+  <div class="panel-footer" style="margin-top: 30px; margin-bottom: 80px">
+    <button class="btn btn-primary btn-md" id="send-contact" (click)="showAlert()">Gửi</button>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="alert" [class.visible]="isVisible">
+        Gửi yêu cầu thành công
+      </div>
+    </div>
+  </div>
+</div>
