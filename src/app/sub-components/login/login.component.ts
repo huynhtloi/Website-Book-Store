@@ -36,7 +36,15 @@ export class LoginComponent implements OnInit, OnDestroy {
 		}
 		else {
 			this.Subscription = this.UserService.getByUsername(this.username).subscribe(data => {
-				if (btoa(this.password) == data[0]['pass']) {
+				if (data[0] == undefined) {
+					if (this.isVisible) {
+						return;
+					}
+					this.isVisible = true;
+					this.messageAlert = 'Tên người dùng không đúng';
+					setTimeout(() => this.isVisible = false, 1000);
+				}
+				else if (btoa(this.password) == data[0]['pass']) {
 					sessionStorage.setItem('username', this.username);
 					sessionStorage.setItem('iduser', data[0]["id"]);
 					this.router.navigate(['']);
@@ -47,7 +55,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 						return;
 					}
 					this.isVisible = true;
-					this.messageAlert = 'Đăng nhập thất bại';
+					this.messageAlert = 'Mật khẩu sai, vui lòng nhập lại';
 					setTimeout(() => this.isVisible = false, 1000);
 				}
 			}, error => {
