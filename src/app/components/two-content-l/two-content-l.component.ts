@@ -16,6 +16,10 @@ export class TwoContentLComponent implements OnInit, OnDestroy {
 	public saleBooks: Book[];
 	public bestBooks: Book[];
 
+	public pageNew = 1;
+	public pageSale = 1;
+	public pageBest = 1;
+
 	constructor(
 		public BookService: BookService
 	) { }
@@ -26,6 +30,16 @@ export class TwoContentLComponent implements OnInit, OnDestroy {
 		this.loadDataBook();
 		this.loadAllNewBook();
 		this.loadAllSaleBook();
+	}
+
+	handlePageChangeNew(event) {
+		this.pageNew = event;
+	}
+	handlePageChangeSale(event) {
+		this.pageSale = event;
+	}
+	handlePageChangeBest(event) {
+		this.pageBest = event;
 	}
 
 	loadAllBestBook(){

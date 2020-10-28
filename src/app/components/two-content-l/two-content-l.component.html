@@ -6,7 +6,9 @@
       <div class="content">
         <div class="content-c">
           <table class="list-mobile" width="100%">
-            <tr *ngFor="let row of newBooks | divideArrayData: 3">
+            <tr *ngFor="let row of newBooks 
+                  | divideArrayData: 3 
+                  | paginate: {id: 'new', itemsPerPage: 3, currentPage: pageNew }">
               <ng-container *ngFor="let book of row">
                 <td class="image">
                   <a class="image-mobile" title="" 
@@ -38,6 +40,11 @@
         </div>
       </div>
     </div>
+    <!-- phân trang -->
+    <pagination-controls id="new" (pageChange)="handlePageChangeNew($event)"
+      previousLabel=""
+      nextLabel="">
+    </pagination-controls>
     <div class="box-brand">
       <div class="header2">
         <span class="title"><span><a href="">Giảm giá</a></span></span>
@@ -45,7 +52,9 @@
         <div class="content">
           <div class="content-c">
             <table class="list-mobile" width="100%">
-              <tr *ngFor="let row of saleBooks | divideArrayData: 3">
+              <tr *ngFor="let row of saleBooks 
+                      | divideArrayData: 3
+                      | paginate: {id: 'sale', itemsPerPage: 3, currentPage: pageSale }">
                 <ng-container *ngFor="let book of row">
                   <td class="image">
                     <a class="image-mobile" title="" 
@@ -77,6 +86,11 @@
           </div>
         </div>
     </div>
+    <!-- phân trang -->
+    <pagination-controls id="sale" (pageChange)="handlePageChangeSale($event)"
+      previousLabel=""
+      nextLabel="">
+    </pagination-controls>
     <div class="box-brand">
       <div class="header2">
         <span class="title"><span><a href="">Bán chạy</a></span></span>
@@ -84,7 +98,9 @@
         <div class="content">
           <div class="content-c">
             <table class="list-mobile" width="100%">
-              <tr *ngFor="let row of books | divideArrayData: 3">
+              <tr *ngFor="let row of books 
+                      | divideArrayData: 3
+                      | paginate: {id: 'best', itemsPerPage: 3, currentPage: pageBest }">
                 <ng-container *ngFor="let book of row">
                   <td class="image">
                     <a class="image-mobile" title="" 
@@ -116,4 +132,10 @@
           </div>
         </div>
     </div>
+    <!-- phân trang -->
+    <pagination-controls id="best" (pageChange)="handlePageChangeBest($event)"
+      previousLabel=""
+      nextLabel="">
+    </pagination-controls>
   </div>
+  
