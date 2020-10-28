@@ -5,15 +5,17 @@
   <div class="body-contact" style="margin-top: 30px">
     <div class="panel-body">
       <label for="input-id" class="col-sm-2">Họ tên:</label>
-      <input type="text" name="" placeholder="Your name" style="width: 300px">
+      <input type="text" name="" placeholder="Your name" style="width: 300px" [(ngModel)] = 'name'>
     </div>
     <div class="panel-body">
       <label for="input-id" class="col-sm-2">Email:</label>
-      <input type="text" name="" placeholder="Your email" style="width: 300px">
+      <input type="text" name="" placeholder="Your email" style="width: 300px" [(ngModel)] = 'mail'>
     </div>
     <div class="panel-body">
       <label for="input-id" class="col-sm-2">Message:</label>
-      <textarea type="text" placeholder="Your question" style="width: 300px"></textarea>
+      <textarea type="text" placeholder="Your question" style="width: 300px" [(ngModel)] = 'message'>
+        
+      </textarea>
     </div>
   </div>
   <div class="panel-footer" style="margin-top: 30px; margin-bottom: 80px">
@@ -22,7 +24,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div class="alert" [class.visible]="isVisible">
-        Gửi yêu cầu thành công
+        {{messageAlert}}
       </div>
     </div>
   </div>
