@@ -1,1 +1,0 @@
-{"id":"TK84CBakxz7Zcosj","body":"  SELECT id, allprice, amount, idbook, idshipper, iduser, price\n  FROM book_store.buy\n  LIMIT 500;","filename":"script_10.cql","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","source":"action","modified":true}

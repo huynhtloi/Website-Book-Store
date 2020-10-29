@@ -17,7 +17,7 @@
                 <input type="text" class="form-control" placeholder="Giá *" formControlName="bookprice" />
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nhà cung cấp *" formControlName="bookprovider" />
+                <input type="text" class="form-control" placeholder="Nhà xuất bản *" formControlName="bookpublisher" />
               </div>
             </div>
             <div class="col-md-6">
@@ -58,7 +58,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <div>Chọn ảnh:</div>
-                <input type="file" name="file" id="file" formControlName="bookimagepath" />
+                <input type="file" name="file" id="file" (change)='handleSeleted($event)'/>
               </div>
             </div>
             <div class="col-md-12">
@@ -69,6 +69,7 @@
           <div class="alert" [class.visible]="isVisible">
             {{messageAlert}}
           </div>
+          <img [src]="imagePath">
         </div>
       </div>
     </div>

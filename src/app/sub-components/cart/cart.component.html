@@ -49,9 +49,8 @@
                 <ng-container *ngFor="let item of items">
                   <ng-container *ngIf="cart.idbook == book.id && book.id == item.book.id">
                     <td class="item">
-                      <a class="image-mobile" title="{{book.name}}" style="
-                              background:url('{{book.img}}') no-repeat 43% 40%;
-                              background-size: 150px 200px;">
+                      <a class="image-mobile" title="{{book.name}}">
+                        <img [src]="book.img | formatImage" width="150%" style="object-position: -15px 0;">
                       </a>
                     </td>
                     <td class="item">

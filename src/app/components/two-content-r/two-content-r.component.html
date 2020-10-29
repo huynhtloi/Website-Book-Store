@@ -152,7 +152,7 @@
         <div class="mobile-info">
           <div class="mobile-c">
             <a class="image" [routerLink]="['/detail']" [queryParams]="{id: featureBook.id}">
-              <img src="{{featureBook.img}}" alt="HTC One - FPT" />
+              <img [src]="featureBook.img | formatImage" alt="HTC One - FPT" />
             </a>
             <div class="info">
               <span class="name">

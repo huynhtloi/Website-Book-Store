@@ -49,6 +49,7 @@ import { ProfileComponent } from './sub-components/profile/profile.component';
 import { MybookComponent } from './sub-components/mybook/mybook.component';
 import { AddComponent } from './sub-components/mybook/components/add/add.component';
 import { ListComponent } from './sub-components/mybook/components/list/list.component';
+import { FormatImagePipe } from './pipes/format-image.pipe';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { ListComponent } from './sub-components/mybook/components/list/list.comp
     FormatNamePipe,
     MybookComponent,
     AddComponent,
-    ListComponent
+    ListComponent,
+    FormatImagePipe
   ],
   imports: [
     BrowserModule,

@@ -17,9 +17,14 @@ export class BookService {
 	public API_id: string = 'http://localhost:8080/api/books/id/';
 	public API_new: string = 'http://localhost:8080/api/books/new/1';
 	public API_freeship: string = 'http://localhost:8080/api/books/free/';
+	public API_create:string = 'http://localhost:8080/api/books/create';
 	constructor(
 		public http: HttpClient
 	) { }
+
+	addBook(book: Book): Observable<Book> {
+		return this.http.post<Book>(this.API_create, book);
+	}
 
 	getAllBook(): Observable<Book[]> {
 		return this.http.get<Book[]>(this.API);

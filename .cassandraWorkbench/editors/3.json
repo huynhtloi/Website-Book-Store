@@ -1,1 +1,0 @@
-{"id":"nYILO0792vNgr4TD","body":"  SELECT id, address, age, name, pass, role, sex, username\n  FROM book_store.user\n  LIMIT 500;","filename":"script_10.cql","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","source":"action","modified":true}

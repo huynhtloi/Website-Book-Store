@@ -9,8 +9,9 @@ import { Publisher } from './../models/Publisher.class';
 export class PublisherService {
 
 	public API: string = 'http://localhost:8080/api/publishers';
+	public API_create:string = 'http://localhost:8080/api/publishers/create';
 	constructor(
-		public http:HttpClient
+		public http: HttpClient
 	) { }
 
 	getAllPublisher(): Observable<Publisher[]> {
@@ -18,8 +19,12 @@ export class PublisherService {
 		return this.http.get<Publisher[]>(this.API);
 	}
 
-	handleError(err){
-		if(err.error instanceof Error) {
+	addPublisher(publisher: Publisher): Observable<Publisher> {
+		return this.http.post<Publisher>(this.API_create, publisher);
+	}
+
+	handleError(err) {
+		if (err.error instanceof Error) {
 			console.log(`Client-side error: ${err.error.message}`);
 		}
 		else {

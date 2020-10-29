@@ -22,7 +22,7 @@
         <div class="pikachoose">
           <ul id="pikame" class="jcarousel-skin-pika">
             <li>
-              <a ref="lightbox" target="_blank" href="" class="slide"><img src="{{book.img}}" width="120%" />
+              <a ref="lightbox" target="_blank" href="" class="slide"><img [src]="book.img | formatImage" width="120%" />
               </a>
             </li>
             <!--             <li>
@@ -189,7 +189,7 @@
                     {{book.page}}
                   </td>
                 </tr>
-                <tr>
+                <tr style="height: 22.4px">
                   <td class="label">Nhà cung cấp:</td>
                   <td>
                     {{provider}}

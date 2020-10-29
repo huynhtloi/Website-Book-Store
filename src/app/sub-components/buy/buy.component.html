@@ -44,9 +44,8 @@
             </tr>
             <tr class="odd" *ngFor="let item of items">
               <td class="item">
-                <a class="image-mobile" title="{{item.name}}" href="#" style="
-                              background:url('{{item.img}}') no-repeat 43% 40%;
-                              background-size: 150px 200px;">
+                <a class="image-mobile" title="{{item.name}}" href="#">
+                  <img [src]="item.img | formatImage" width="150%" style="object-position: -15px 0;">
                 </a>
               </td>
               <td class="item">

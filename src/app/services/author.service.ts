@@ -10,6 +10,7 @@ export class AuthorService {
 
 	public API : string = 'http://localhost:8080/api/authors';
 	public API_id : string = 'http://localhost:8080/api/authors/id/';
+	public API_create : string = 'http://localhost:8080/api/authors/create';
 	constructor(
 		public http:HttpClient
 	) { }
@@ -22,6 +23,10 @@ export class AuthorService {
 	getByAuthor(id): Observable<Author[]> {
 		// trong angular 5+
 		return this.http.get<Author[]>(this.API_id + id);
+	}
+
+	addAuthor(author: Author): Observable<Author> {
+		return this.http.post<Author>(this.API_create, author);
 	}
 
 	handleError(err){

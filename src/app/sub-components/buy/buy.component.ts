@@ -10,6 +10,8 @@ import { Shipper } from './../../models/Shipper.class';
 
 import { Subscription, forkJoin } from 'rxjs';
 
+import { DomSanitizer } from '@angular/platform-browser';
+
 @Component({
 	selector: 'app-buy',
 	templateUrl: './buy.component.html',
@@ -24,7 +26,8 @@ export class BuyComponent implements OnInit, OnDestroy {
 	constructor(
 		public BuyService: BuyService,
 		public BookService: BookService,
-		public ShipperService: ShipperService
+		public ShipperService: ShipperService,
+		private _sanitizer: DomSanitizer
 	) { }
 
 	ngOnInit(): void {

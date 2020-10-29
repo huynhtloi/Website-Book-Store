@@ -1,1 +1,0 @@
-{"id":"1CzaqFZjvETYORog","body":"INSERT INTO book_store.provider(\n\tid, \n\tname\n)\nVALUES(\n\tcff48260-1781-11eb-85cc-af013d1c4985, \n\t'234234234234'\n);","filename":"script_7.cql","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","source":"action","modified":true}

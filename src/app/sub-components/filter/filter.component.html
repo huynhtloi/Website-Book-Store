@@ -22,7 +22,7 @@
                   <a class="image-mobile" title=""
                       [routerLink]="['/detail']"
                       [queryParams] = "{id: book.id}">
-                    <img src="{{book.img}}" width="120%">
+                    <img [src]="book.img | formatImage" width="120%">
                   </a>
                 </td>
                 <td class="info">
