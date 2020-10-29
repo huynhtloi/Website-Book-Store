@@ -1,1 +1,1 @@
-{"id":"cuX2Ox8ewrsfBISa","body":"INSERT INTO book_store.provider(\n\tid, \n\tname\n)\nVALUES(\n\t125882f0-1782-11eb-8d60-6c274bb69975, \n\t'234234234fsdsdsdf'\n);","filename":"script_9.cql","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","source":"action","modified":true}
+{"id":"GxCgt9pnlwXcfPvj","body":"  SELECT id, name\n  FROM book_store.publisher\n  LIMIT 500;","filename":"script_10.cql","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","source":"action","modified":true}

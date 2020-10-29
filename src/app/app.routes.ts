@@ -14,6 +14,9 @@ import { AuthGaurdService } from './services/auth-gaurd.service';
 import { RegisterComponent } from './sub-components/register/register.component';
 import { BuyComponent } from './sub-components/buy/buy.component';
 import { ContactComponent } from './sub-components/contact/contact.component';
+import { MybookComponent } from './sub-components/mybook/mybook.component';
+import { AddComponent } from './sub-components/mybook/components/add/add.component';
+import { ListComponent } from './sub-components/mybook/components/list/list.component';
 
 export const appRouter: Routes = [
 	{
@@ -29,6 +32,23 @@ export const appRouter: Routes = [
 	{
 		path:'book',
 		component:FilterComponent
+	},
+	{
+		path:'mybook',
+		component:MybookComponent,
+		canActivate:[AuthGaurdService],
+		children: [
+			{
+				path:'add',
+				component:AddComponent,
+				canActivate:[AuthGaurdService]
+			},
+			{
+				path:'list',
+				component:ListComponent,
+				canActivate:[AuthGaurdService]
+			}
+		]
 	},
 	{
 		path:'help',

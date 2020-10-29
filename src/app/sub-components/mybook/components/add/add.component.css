@@ -1,0 +1,52 @@
+.note
+{
+    margin-top: 20px;
+    text-align: center;
+    width: 750px;
+    height: 80px;
+    font-size: 20px;
+    background: -webkit-linear-gradient(left, #498cf9, #498cf0);
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+}
+.form-content
+{
+    width: 750px;
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 20%;
+}
+.form-control{
+    border-radius:1.5rem;
+}
+.btnSubmit
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 50%;
+    height: 7%;
+    cursor: pointer;
+    background: #0062cc;
+    color: #fff;
+}
+.alert { 
+  text-align: center;
+  margin-top: 0px;
+  top: 0;
+  right: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  padding: 2rem;
+  background: #fff;
+  color: #f65656;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(1.25rem);
+}

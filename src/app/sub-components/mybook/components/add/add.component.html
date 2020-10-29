@@ -1,0 +1,76 @@
+<div class="content-r">
+  <form [formGroup]="addmybook" (ngSubmit)="onSubmit()">
+    <div class="container register-form">
+      <div class="form">
+        <div class="note">
+          <p>{{title | uppercase}}</p>
+        </div>
+        <div class="form-content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Tên sách *" formControlName="bookname" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Giá *" formControlName="bookprice" />
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nhà cung cấp *" formControlName="bookprovider" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Tác giả *" formControlName="bookauthor" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Loại bìa *" formControlName="bookcover" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="number" class="form-control" placeholder="Chiều dài *" formControlName="bookheight" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="number" class="form-control" placeholder="Chiều rộng *" formControlName="bookwidth" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="number" class="form-control" placeholder="Mã sku *" formControlName="booksku" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="number" class="form-control" placeholder="Số trang *" formControlName="bookpage" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <textarea type="text" class="form-control" placeholder="Giới thiệu về sách..." formControlName="bookdescription"></textarea>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <div>Chọn ảnh:</div>
+                <input type="file" name="file" id="file" formControlName="bookimagepath" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <button type="submit" class="btnSubmit" [disabled]="!addmybook.valid">Thêm sản phẩm</button>
+            </div>
+          </div>
+          <br>
+          <div class="alert" [class.visible]="isVisible">
+            {{messageAlert}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

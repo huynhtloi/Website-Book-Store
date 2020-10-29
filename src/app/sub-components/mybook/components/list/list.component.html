@@ -1,0 +1,90 @@
+<div class="content-r">
+  <style>
+    .mobile-price .item { vertical-align:middle}
+                    .mobile-price .item p{ line-height:150%;}
+                </style>
+  <div class="nav">
+    <ul class="left">
+      <li><a href="">Trang chủ</a></li>
+      <li><span> » </span></li>
+      <li><a class="actived" [routerLink]="['/buy']">Thanh toán</a></li>
+    </ul>
+    <ul class="right">
+    </ul>
+  </div>
+  <div class="header-info">
+    <form method="post" action="/Mobile_Store/CartController">
+      <table class="mobile-price" cellspacing="1">
+        <tbody>
+          <tr>
+            <th style="width:100px">
+              Ảnh
+            </th>
+            <th style="width:50px">
+              Sản phẩm
+            </th>
+            <th style="width:100px">
+              Nhà vận chuyển
+            </th>
+            <th>Phí giao hàng</th>
+            <th style="width:90px;">
+              Giá tiền
+            </th>
+            <th style="width:20px;">
+              SL
+            </th>
+            <th style="width:100px;">
+              Thành tiền
+            </th>
+          </tr>
+          <tr class="odd">
+            <td class="item">
+              <a class="image-mobile" title="" href="#" style="
+                              background:url('') no-repeat 43% 40%;
+                              background-size: 150px 200px;">
+              </a>
+            </td>
+            <td class="item">
+              <strong style="font-weight:bold;">
+                <a [routerLink]="['/detail']" [queryParams]="">
+                </a>
+              </strong>
+            </td>
+            <td class="item">
+              <div>
+                
+              </div>
+            </td>
+            <td class="item">
+              <span class="price-value"> VNĐ</span>
+            </td>
+            <td class="item">
+              <span class="price-value"> VNĐ</span>
+            </td>
+            <td class="item">
+              <span><b></b></span>
+            </td>
+            <td class="item">
+              <span class="price-value"> VNĐ</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="8">
+              <p>
+                <b>Tổng tiền</b>:
+                <span class="price-value">
+                   VNĐ
+                </span>
+                <i style="font-style:italic"></i>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="submit" style="padding:10px; 0px;">
+        <input type="button" value="Hướng dẫn đặt hàng" [routerLink]="['/help']"> &nbsp;
+        <input type="button" value="Tiếp tục mua hàng" [routerLink]="['']">
+      </p>
+    </form>
+  </div>
+</div>

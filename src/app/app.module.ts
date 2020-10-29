@@ -46,6 +46,9 @@ import { RegisterComponent } from './sub-components/register/register.component'
 import { BuyComponent } from './sub-components/buy/buy.component';
 import { BuyContentLComponent } from './components/buy-content-l/buy-content-l.component';
 import { ProfileComponent } from './sub-components/profile/profile.component';
+import { MybookComponent } from './sub-components/mybook/mybook.component';
+import { AddComponent } from './sub-components/mybook/components/add/add.component';
+import { ListComponent } from './sub-components/mybook/components/list/list.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +78,10 @@ import { ProfileComponent } from './sub-components/profile/profile.component';
     DivideArrayDataPipe,
     SumPipe,
     ProfileComponent,
-    FormatNamePipe
+    FormatNamePipe,
+    MybookComponent,
+    AddComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
