@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, forkJoin } from 'rxjs';
 
 import { Contact } from './../../models/Contact.class';
@@ -9,7 +9,7 @@ import { ContactService } from './../../services/contact.service';
 	templateUrl: './contact.component.html',
 	styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
 
 	public name: string = '';
 	public mail: string = '';
@@ -48,6 +48,11 @@ export class ContactComponent implements OnInit {
 				setTimeout(() => this.isVisible = false, 1000);
 				this.ContactService.handleError(error);
 			});
+		}
+	}
+	ngOnDestroy():void {
+		if (this.Subscription) {
+			this.Subscription.unsubscribe();
 		}
 	}
 

@@ -1,1 +1,1 @@
-{"id":"T2IXvYOZdQVmcWiw","body":"  SELECT id, mail, message, name\n  FROM book_store.contact\n  LIMIT 500;","filename":"script_10.cql","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","source":"action","modified":true}
+{"id":"sC9yeLP3kmBvJK24","body":"-- change table name and structure\nCREATE TABLE book_store.slidingbox(\n\tpk text,\n\tcck text,\n\tdata text,\n\tPRIMARY KEY(pk,cck)\n);","filename":"script_10.cql","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","source":"action","modified":true}

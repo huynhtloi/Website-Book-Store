@@ -18,6 +18,7 @@ import { UserService } from './services/user.service';
 
 import { DivideArrayDataPipe } from './pipes/divide-array-data.pipe';
 import { SumPipe } from './pipes/sum.pipe';
+import { FormatNamePipe } from './pipes/format-name.pipe';
 
 import { appRouter } from './app.routes';
 
@@ -73,7 +74,8 @@ import { ProfileComponent } from './sub-components/profile/profile.component';
     BuyContentLComponent,
     DivideArrayDataPipe,
     SumPipe,
-    ProfileComponent
+    ProfileComponent,
+    FormatNamePipe
   ],
   imports: [
     BrowserModule,
