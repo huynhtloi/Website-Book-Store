@@ -7,7 +7,7 @@
     <ul class="left">
       <li><a href="">Trang chủ</a></li>
       <li><span> » </span></li>
-      <li><a class="actived" [routerLink]="['/buy']">Thanh toán</a></li>
+      <li><a class="actived" [routerLink]="['/mybook/list']">Danh sách sản phẩm</a></li>
     </ul>
     <ul class="right">
     </ul>
@@ -16,75 +16,76 @@
     <form method="post" action="/Mobile_Store/CartController">
       <table class="mobile-price" cellspacing="1">
         <tbody>
-          <tr>
+          <tr class="title-table-list-mybook">
             <th style="width:100px">
               Ảnh
             </th>
-            <th style="width:50px">
+            <th style="width:70px">
               Sản phẩm
             </th>
-            <th style="width:100px">
-              Nhà vận chuyển
+            <th style="width:120px">
+              Nhà xuất bản
             </th>
-            <th>Phí giao hàng</th>
-            <th style="width:90px;">
+            <th style="width:60px">
+              Sku
+            </th>
+            <th style="width:70px;">
               Giá tiền
             </th>
             <th style="width:20px;">
-              SL
+              Loại bìa
+            </th>
+            <th style="width:10px;">
+              Số trang
             </th>
             <th style="width:100px;">
-              Thành tiền
+              Kích thước
+            </th>
+            <th style="width:100px;">
+              Mô tả
             </th>
           </tr>
-          <tr class="odd">
+          <tr class="odd" *ngFor="let mybook of myBooks">
             <td class="item">
-              <a class="image-mobile" title="" href="#" style="
-                              background:url('') no-repeat 43% 40%;
-                              background-size: 150px 200px;">
+              <a class="image-mobile" title="{{mybook.name}}" [routerLink]="['/detail']" [queryParams]="{id : mybook.id}">
+                 <img [src]="mybook.img | formatImage" width="150%" style="object-position: -15px 0;">
               </a>
             </td>
             <td class="item">
               <strong style="font-weight:bold;">
-                <a [routerLink]="['/detail']" [queryParams]="">
+                <a [routerLink]="['/detail']" [queryParams]="{id : mybook.id}">
+                  {{mybook.name}}
                 </a>
               </strong>
             </td>
             <td class="item">
               <div>
-                
+                {{mybook.publisher}}
               </div>
             </td>
             <td class="item">
-              <span class="price-value"> VNĐ</span>
+              <div>
+                {{mybook.sku}}
+              </div>
             </td>
             <td class="item">
-              <span class="price-value"> VNĐ</span>
+              <span class="price-value">{{mybook.price | currency :'':'':'1.0-3'}} VNĐ</span>
             </td>
             <td class="item">
-              <span><b></b></span>
+              {{mybook.cover}}
             </td>
             <td class="item">
-              <span class="price-value"> VNĐ</span>
+              {{mybook.page}}
             </td>
-          </tr>
-          <tr>
-            <td colspan="8">
-              <p>
-                <b>Tổng tiền</b>:
-                <span class="price-value">
-                   VNĐ
-                </span>
-                <i style="font-style:italic"></i>
-              </p>
+            <td class="item">
+              {{mybook.height}} - {{mybook.width}} cm
+            </td>
+            <td class="item">
+              {{mybook.des}}
             </td>
           </tr>
         </tbody>
       </table>
-      <p class="submit" style="padding:10px; 0px;">
-        <input type="button" value="Hướng dẫn đặt hàng" [routerLink]="['/help']"> &nbsp;
-        <input type="button" value="Tiếp tục mua hàng" [routerLink]="['']">
-      </p>
     </form>
   </div>
 </div>
