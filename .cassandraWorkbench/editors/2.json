@@ -1,1 +1,1 @@
-{"id":"bxesoHM0ncmlVOqa","body":"-- change column name and type\nALTER TABLE book_store.user ADD img TEXT;","filename":"script_2.cql","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","source":"action","modified":true}
+{"id":"D6UE7Brg0eOpdlKC","body":"  SELECT id, address, age, img, name, pass, role, sex, username\n  FROM book_store.user\n  LIMIT 500;","filename":"script_3.cql","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","source":"action","modified":true}
