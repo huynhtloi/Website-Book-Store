@@ -13,6 +13,8 @@ import { User } from './../../models/User.class';
 })
 export class RegisterComponent implements OnInit {
 
+	public base64textString: string = "";
+
 	public title: string = 'Đăng ký thành viên';
 
 	public Subscription: Subscription;
@@ -34,11 +36,26 @@ export class RegisterComponent implements OnInit {
 	ngOnInit(): void {
 	}
 
+	handleSeleted(evt) {
+		var files = evt.target.files;
+		var file = files[0];
+		if (files && file) {
+			var reader = new FileReader();
+			reader.onload = this._handleReaderLoaded.bind(this);
+			reader.readAsBinaryString(file);
+		}
+	}
+
+	_handleReaderLoaded(readerEvt) {
+		var binaryString = readerEvt.target.result;
+		this.base64textString = btoa(binaryString);
+	}
+
 	onSubmit() {
 		if (this.register.value.userName == '' || this.register.value.passWord == '' ||
 			this.register.value.name == '' || this.register.value.age == '' ||
 			this.register.value.sex == '' || this.register.value.address == '' ||
-			this.register.value.confirmPass == '') {
+			this.register.value.confirmPass == '' || this.base64textString == '') {
 			if (this.isVisible) {
 				return;
 			}
@@ -72,7 +89,7 @@ export class RegisterComponent implements OnInit {
 					this.register.value.age,
 					this.register.value.sex,
 					this.register.value.address,
-					0);
+					0, this.base64textString);
 				console.log(user);
 				this.Subscription = this.UserService.createAccount(user).subscribe(data => {
 					if (this.isVisible) {

@@ -38,6 +38,12 @@
               <input type="password" class="form-control" placeholder="Confirm Password *" formControlName="confirmPass" />
             </div>
           </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div>Chọn ảnh đại diện:</div>
+              <input type="file" name="file" id="file" (change)='handleSeleted($event)'/>
+            </div>            
+          </div>
         </div>
         <button type="submit" class="btnSubmit" [disabled]="!register.valid">Đăng ký</button>
         <br>

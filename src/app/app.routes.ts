@@ -14,9 +14,13 @@ import { AuthGaurdService } from './services/auth-gaurd.service';
 import { RegisterComponent } from './sub-components/register/register.component';
 import { BuyComponent } from './sub-components/buy/buy.component';
 import { ContactComponent } from './sub-components/contact/contact.component';
+// MybookComponent
 import { MybookComponent } from './sub-components/mybook/mybook.component';
 import { AddComponent } from './sub-components/mybook/components/add/add.component';
 import { ListComponent } from './sub-components/mybook/components/list/list.component';
+// ProfileComponent
+import { ProfileComponent } from './sub-components/profile/profile.component';
+import { ShowProfileComponent } from './sub-components/profile/show-profile/show-profile.component';
 
 export const appRouter: Routes = [
 	{
@@ -32,6 +36,18 @@ export const appRouter: Routes = [
 	{
 		path:'book',
 		component:FilterComponent
+	},
+	{
+		path:'profile',
+		component:ProfileComponent,
+		canActivate:[AuthGaurdService],
+		children: [
+			{
+				path:'show',
+				component:ShowProfileComponent,
+				canActivate:[AuthGaurdService]
+			}
+		]
 	},
 	{
 		path:'mybook',

@@ -19,6 +19,7 @@ import { UserService } from './services/user.service';
 import { DivideArrayDataPipe } from './pipes/divide-array-data.pipe';
 import { SumPipe } from './pipes/sum.pipe';
 import { FormatNamePipe } from './pipes/format-name.pipe';
+import { FormatImagePipe } from './pipes/format-image.pipe';
 
 import { appRouter } from './app.routes';
 
@@ -46,10 +47,13 @@ import { RegisterComponent } from './sub-components/register/register.component'
 import { BuyComponent } from './sub-components/buy/buy.component';
 import { BuyContentLComponent } from './components/buy-content-l/buy-content-l.component';
 import { ProfileComponent } from './sub-components/profile/profile.component';
+// MybookComponent
 import { MybookComponent } from './sub-components/mybook/mybook.component';
 import { AddComponent } from './sub-components/mybook/components/add/add.component';
 import { ListComponent } from './sub-components/mybook/components/list/list.component';
-import { FormatImagePipe } from './pipes/format-image.pipe';
+// ProfileComponent
+import { ShowProfileComponent } from './sub-components/profile/show-profile/show-profile.component';
+import { EditprofileComponent } from './sub-components/profile/editprofile/editprofile.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +87,9 @@ import { FormatImagePipe } from './pipes/format-image.pipe';
     MybookComponent,
     AddComponent,
     ListComponent,
-    FormatImagePipe
+    FormatImagePipe,
+    ShowProfileComponent,
+    EditprofileComponent
   ],
   imports: [
     BrowserModule,

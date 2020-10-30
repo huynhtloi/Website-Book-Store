@@ -7,6 +7,7 @@ export class User {
 	public sex:string;
 	public role:number;
 	public id:string;
+	public img:String;
 
 	constructor(
 		username:string, 
@@ -15,7 +16,8 @@ export class User {
 		age:number,
 		sex:string,
 		address:string,
-		role:number){
+		role:number,
+		img:string){
 		this.username = username;
 		this.pass = pass;
 		this.name = name;
@@ -23,5 +25,6 @@ export class User {
 		this.address = address;
 		this.sex = sex;
 		this.role = role;
+		this.img = img;
 	}
 }

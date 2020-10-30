@@ -30,6 +30,9 @@
               <li *ngIf="UserService.isUserLoggedIn()">
                   <a [routerLink]="['/cart']"><span>Giỏ hàng</span></a>
               </li>
+              <li *ngIf="UserService.isUserLoggedIn()">
+                  <a [routerLink]="['/profile/show']"><span>Thông tin</span></a>
+              </li>
               <li *ngIf="!UserService.isUserLoggedIn()">
                   <a [routerLink]="['/login']"><span>Đăng nhập</span></a>
               </li>
