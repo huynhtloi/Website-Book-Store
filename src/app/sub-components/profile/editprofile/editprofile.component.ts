@@ -26,7 +26,6 @@ export class EditprofileComponent implements OnInit, OnDestroy {
 
 	public isVisible: boolean = false;
 	public messageAlert: string = '';
-	public
 	constructor(
 		public _sanitizer: DomSanitizer,
 		public UserService: UserService) { }
@@ -55,36 +54,45 @@ export class EditprofileComponent implements OnInit, OnDestroy {
 	}
 
 	editUserProfile() {
-		let userLogin: string = sessionStorage.getItem("username");
-		this.Subscription = this.UserService.getByUsername(userLogin).subscribe(data => {
+		if (this.name == '' || this.sex == '' || this.age == 0 || this.address == '') {
+			if (this.isVisible) {
+				return;
+			}
+			this.isVisible = true;
+			this.messageAlert = 'Vui lòng điền đầy đủ thông tin';
+			setTimeout(() => this.isVisible = false, 1000);
+		}
+		else {
+			let userLogin: string = sessionStorage.getItem("username");
+			this.Subscription = this.UserService.getByUsername(userLogin).subscribe(data => {
 
-			let user: User = new User
-				(data[0]["username"],
-					data[0]["pass"],
-					this.name, this.age, this.sex, this.address, 0, this.base64textString);
+				let user: User = new User
+					(data[0]["username"],
+						data[0]["pass"],
+						this.name, this.age, this.sex, this.address, 0, this.base64textString);
 
-			let id: string = sessionStorage.getItem("iduser");
-			
-			this.Subscription = this.UserService.editAccount(user, id).subscribe(data => {
-				if (this.isVisible) {
-					return;
-				}
-				this.isVisible = true;
-				this.messageAlert = 'Cập nhật thông tin thành công';
-				setTimeout(() => this.isVisible = false, 1000);
+				let id: string = sessionStorage.getItem("iduser");
+
+				this.Subscription = this.UserService.editAccount(user, id).subscribe(data => {
+					if (this.isVisible) {
+						return;
+					}
+					this.isVisible = true;
+					this.messageAlert = 'Cập nhật thông tin thành công';
+					setTimeout(() => this.isVisible = false, 1000);
+				}, error => {
+					this.UserService.handleError(error);
+					if (this.isVisible) {
+						return;
+					}
+					this.isVisible = true;
+					this.messageAlert = 'Cập nhật thông tin thất bại';
+					setTimeout(() => this.isVisible = false, 1000);
+				});
 			}, error => {
 				this.UserService.handleError(error);
-				if (this.isVisible) {
-					return;
-				}
-				this.isVisible = true;
-				this.messageAlert = 'Cập nhật thông tin thất bại';
-				setTimeout(() => this.isVisible = false, 1000);
 			});
-		}, error => {
-			this.UserService.handleError(error);
-		});
-
+		}
 	}
 
 	ngOnDestroy(): void {

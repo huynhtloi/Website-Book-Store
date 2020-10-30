@@ -19,6 +19,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class BuyComponent implements OnInit, OnDestroy {
 
+	public page = 1;
 	public Subscription: Subscription;
 	buys: Buy[] = [];
 	items = [];
@@ -33,6 +34,10 @@ export class BuyComponent implements OnInit, OnDestroy {
 	ngOnInit(): void {
 		this.items = [];
 		this.loadAllBuy();
+	}
+
+	handlePageChange(event) {
+		this.page = event;
 	}
 
 	loadAllBuy() {

@@ -14,6 +14,9 @@ import { PublisherService } from './../../../../services/publisher.service';
 })
 export class ListComponent implements OnInit, OnDestroy {
 
+
+	public page: number = 1;
+
 	public Subscription: Subscription;
 	public myBooks = [];
 	constructor(
@@ -38,13 +41,13 @@ export class ListComponent implements OnInit, OnDestroy {
 								name: data[0][j]["name"],
 								img: data[0][j]["img"],
 								publisher: data[1][i]["name"],
-								sku : data[0][j]["sku"],
-								price : data[0][j]["price"],
-								cover : data[0][j]["cover"],
-								page : data[0][j]["page"],
-								width : data[0][j]["width"],
-								height : data[0][j]["height"],
-								des : data[0][j]["description"]
+								sku: data[0][j]["sku"],
+								price: data[0][j]["price"],
+								cover: data[0][j]["cover"],
+								page: data[0][j]["page"],
+								width: data[0][j]["width"],
+								height: data[0][j]["height"],
+								des: data[0][j]["description"]
 							});
 						}
 					}
@@ -53,6 +56,10 @@ export class ListComponent implements OnInit, OnDestroy {
 			}, error => {
 				this.BookService.handleError(error);
 			});
+	}
+
+	handlePageChange(event) {
+		this.page = event;
 	}
 
 	ngOnDestroy(): void {

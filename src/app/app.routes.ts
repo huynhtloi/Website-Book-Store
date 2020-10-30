@@ -22,6 +22,7 @@ import { ListComponent } from './sub-components/mybook/components/list/list.comp
 import { ProfileComponent } from './sub-components/profile/profile.component';
 import { ShowProfileComponent } from './sub-components/profile/show-profile/show-profile.component';
 import { EditprofileComponent } from './sub-components/profile/editprofile/editprofile.component';
+import { EditPassComponent } from './sub-components/profile/edit-pass/edit-pass.component';
 
 export const appRouter: Routes = [
 	{
@@ -51,6 +52,11 @@ export const appRouter: Routes = [
 			{
 				path:'edit',
 				component:EditprofileComponent,
+				canActivate:[AuthGaurdService]
+			},
+			{
+				path:'pass',
+				component:EditPassComponent,
 				canActivate:[AuthGaurdService]
 			}
 		]

@@ -1,0 +1,40 @@
+<div class="content-r">
+  <div>
+    <h3 class="title-edit-profile">{{title | uppercase}}</h3>
+  </div>
+  <ng-container *ngIf="user != undefined">
+    <div class="container rounded bg-white mt-5 mb-5">
+      <div class="row">
+        <div class="col-md-12 border-right">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            <img class="avatar" [src]="user.img | formatImage" width="70%">
+          </div>
+        </div>
+        <div class="col-md-12 border-right">
+          <div class="p-3 py-5">
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <label class="labels">Mật khẩu cũ</label>
+                <input type="password" class="form-control" placeholder="Old password" value="" [(ngModel)]='oldpass'>
+              </div>
+              <div class="col-md-12">
+                <label class="labels">Mật khẩu mới</label>
+                <input type="password" class="form-control" placeholder="New password" value="" [(ngModel)]='newpass'>
+              </div>
+              <div class="col-md-12">
+                <label class="labels">Nhập lại mật khẩu</label>
+                <input type="password" class="form-control" placeholder="Confirm password" value="" [(ngModel)]='confirmpass'>
+              </div>
+            </div>
+            <div class="mt-5 text-center">
+              <button class="btn btn-primary profile-button" type="button" (click)='editUserProfile()'>Lưu thông tin</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="alert" [class.visible]="isVisible">
+      {{messageAlert}}
+    </div>
+  </ng-container>
+</div>

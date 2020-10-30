@@ -54,6 +54,7 @@ import { ListComponent } from './sub-components/mybook/components/list/list.comp
 // ProfileComponent
 import { ShowProfileComponent } from './sub-components/profile/show-profile/show-profile.component';
 import { EditprofileComponent } from './sub-components/profile/editprofile/editprofile.component';
+import { EditPassComponent } from './sub-components/profile/edit-pass/edit-pass.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { EditprofileComponent } from './sub-components/profile/editprofile/editp
     ListComponent,
     FormatImagePipe,
     ShowProfileComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    EditPassComponent
   ],
   imports: [
     BrowserModule,

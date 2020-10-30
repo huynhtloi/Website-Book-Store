@@ -42,7 +42,7 @@
                 Thành tiền
               </th>
             </tr>
-            <tr class="odd" *ngFor="let item of items">
+            <tr class="odd" *ngFor="let item of items | paginate: { itemsPerPage: 4, currentPage: page }">
               <td class="item">
                 <a class="image-mobile" title="{{item.name}}" href="#">
                   <img [src]="item.img | formatImage" width="150%" style="object-position: -15px 0;">
@@ -70,6 +70,13 @@
               </td>
               <td class="item">
                 <span class="price-value">{{item.allprice | currency :'':'':'1.0-3'}} VNĐ</span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="8">
+                <!-- phân trang -->
+                <pagination-controls (pageChange)="handlePageChange($event)" previousLabel="" nextLabel="">
+                </pagination-controls>
               </td>
             </tr>
             <tr>
