@@ -21,6 +21,7 @@ import { ListComponent } from './sub-components/mybook/components/list/list.comp
 // ProfileComponent
 import { ProfileComponent } from './sub-components/profile/profile.component';
 import { ShowProfileComponent } from './sub-components/profile/show-profile/show-profile.component';
+import { EditprofileComponent } from './sub-components/profile/editprofile/editprofile.component';
 
 export const appRouter: Routes = [
 	{
@@ -45,6 +46,11 @@ export const appRouter: Routes = [
 			{
 				path:'show',
 				component:ShowProfileComponent,
+				canActivate:[AuthGaurdService]
+			},
+			{
+				path:'edit',
+				component:EditprofileComponent,
 				canActivate:[AuthGaurdService]
 			}
 		]

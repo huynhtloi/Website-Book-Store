@@ -7,7 +7,7 @@ export class User {
 	public sex:string;
 	public role:number;
 	public id:string;
-	public img:String;
+	public img:string;
 
 	constructor(
 		username:string, 

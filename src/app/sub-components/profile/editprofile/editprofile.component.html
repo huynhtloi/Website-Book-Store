@@ -1,57 +1,54 @@
 <div class="content-r">
-  <div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-      <div class="col-md-4 border-right">
-        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-          <img class="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF2psCzfbB611rnUhxgMi-lc2oB78ykqDGYb4v83xQ1pAbhPiB&usqp=CAU">
-          <div class="font-weight-bold">Amelly</div>
+  <div>
+    <h3 class="title-edit-profile">{{title | uppercase}}</h3>
+  </div>
+  <ng-container *ngIf="user != undefined">
+    <div class="container rounded bg-white mt-5 mb-5">
+      <div class="row">
+        <div class="col-md-12 border-right">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            <img class="avatar" [src]="imagePath" width="70%">
+          </div>
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5" id="file">
+            <div>
+              <input type="file" name="file" id="file" (change)='handleSeleted($event)' />
+            </div>
+          </div>
+          <div>
+            <button (click)='handleShow(base64textString)' class="button-show-img">Hiển thị ảnh</button>
+          </div>
         </div>
-      </div>
-      <div class="col-md-8 border-right">
-        <div class="p-3 py-5">
-          <div class="row mt-2">
-            <div class="col-md-6">
-              <label class="labels">Name</label>
-              <input type="text" class="form-control" placeholder="first name" value="">
+        <div class="col-md-12 border-right">
+          <div class="p-3 py-5">
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <label class="labels">Tên</label>
+                <input type="text" class="form-control" placeholder="Name" value="{{name}}" [(ngModel)]='name'>
+              </div>
+              <div class="col-md-6">
+                <label class="labels">Giới tính</label>
+                <input type="text" class="form-control" value="{{sex}}" placeholder="sex" [(ngModel)]='sex'>
+              </div>
             </div>
-            <div class="col-md-6">
-              <label class="labels">Surname</label>
-              <input type="text" class="form-control" value="" placeholder="surname">
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <label class="labels">Tuổi</label>
+                <input type="number" class="form-control" placeholder="Age" value="{{age}}" [(ngModel)]='age'>
+              </div>
+              <div class="col-md-12">
+                <label class="labels">Địa chỉ</label>
+                <input type="text" class="form-control" placeholder="Adresss" value="{{address}}" [(ngModel)]='address'>
+              </div>
             </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-12">
-              <label class="labels">PhoneNumber</label>
-              <input type="text" class="form-control" placeholder="enter phone number" value="">
+            <div class="mt-5 text-center">
+              <button class="btn btn-primary profile-button" type="button" (click)='editUserProfile()'>Lưu thông tin</button>
             </div>
-            <div class="col-md-12">
-              <label class="labels">Address</label>
-              <input type="text" class="form-control" placeholder="enter address" value="">
-            </div>
-            <div class="col-md-12">
-              <label class="labels">Email ID</label>
-              <input type="text" class="form-control" placeholder="enter email id" value="">
-            </div>
-            <div class="col-md-12">
-              <label class="labels">Education</label>
-              <input type="text" class="form-control" placeholder="education" value="">
-            </div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-6">
-              <label class="labels">Country</label>
-              <input type="text" class="form-control" placeholder="country" value="">
-            </div>
-            <div class="col-md-6">
-              <label class="labels">State/Region</label>
-              <input type="text" class="form-control" value="" placeholder="state">
-            </div>
-          </div>
-          <div class="mt-5 text-center">
-            <button class="btn btn-primary profile-button" type="button">Save Profile</button>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    <div class="alert" [class.visible]="isVisible">
+      {{messageAlert}}
+    </div>
+  </ng-container>
 </div>

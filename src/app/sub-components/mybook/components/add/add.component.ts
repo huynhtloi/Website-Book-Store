@@ -22,7 +22,7 @@ import { AuthorService } from './../../../../services/author.service';
 export class AddComponent implements OnInit, OnDestroy {
 
 	public base64textString: string = "";
-	imagePath: any = null;
+	public imagePath: any = null;
 
 	public title: string = 'Thêm sản phẩm bán';
 

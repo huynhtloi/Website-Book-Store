@@ -24,7 +24,6 @@ export class ShowProfileComponent implements OnInit, OnDestroy {
 		this.Subscription = this.UserService.getByUsername(userLogin).subscribe(data => {
 
 			this.user = data[0];
-			console.log(this.user.name);
 		},error => {
 			this.UserService.handleError(error);
 		});

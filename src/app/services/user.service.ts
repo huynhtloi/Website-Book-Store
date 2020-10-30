@@ -9,7 +9,8 @@ import { User } from './../models/User.class';
 export class UserService {
 
 	public API_user: string = 'http://localhost:8080/api/users/username/';
-	public API_create : string = 'http://localhost:8080/api/users/create';
+	public API_create: string = 'http://localhost:8080/api/users/create';
+	public API_update: string = 'http://localhost:8080/api/users/';
 	constructor(public http: HttpClient) { }
 
 	getByUsername(username): Observable<User> {
@@ -21,6 +22,9 @@ export class UserService {
 		return this.http.post<User>(this.API_create, user);
 	}
 
+	editAccount(user: User, id: string): Observable<User> {
+		return this.http.put<User>(this.API_update + id, user);
+	}
 
 	handleError(err) {
 		if (err.error instanceof Error) {
