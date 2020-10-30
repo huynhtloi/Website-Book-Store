@@ -30,6 +30,7 @@ export class TwoContentLComponent implements OnInit, OnDestroy {
 		this.loadDataBook();
 		this.loadAllNewBook();
 		this.loadAllSaleBook();
+		this.loadAllBestBook();
 	}
 
 	handlePageChangeNew(event) {

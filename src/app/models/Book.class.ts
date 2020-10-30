@@ -15,7 +15,7 @@ export class Book {
 	public author : string;
 	public bestselling : number;
 	public sale : number;
-	public newbook : number;
+	public bookn : number;
 	public free : number;
 
 	constructor(
@@ -34,7 +34,7 @@ export class Book {
 		author : string,
 		bestselling : number,
 		sale : number,
-		newbook : number,
+		bookn : number,
 		free : number
 	) {
 		this.name = name;
@@ -52,7 +52,7 @@ export class Book {
 		this.author = author;
 		this.bestselling = bestselling;
 		this.sale = sale;
-		this.newbook = newbook;
+		this.bookn = bookn;
 		this.free = free;
 	}
 
@@ -161,10 +161,10 @@ export class Book {
 		this.sale = sale;
 	}
 
-	public getNewbook():number{
-		return this.newbook;
+	public getBookn():number{
+		return this.bookn;
 	}
-	public setNewbook(newbook:number):void {
-		this.newbook = newbook;
+	public setBookn(bookn:number):void {
+		this.bookn = bookn;
 	}
 }

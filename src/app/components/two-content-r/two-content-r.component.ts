@@ -43,7 +43,7 @@ export class TwoContentRComponent implements OnInit, OnDestroy {
 	}
 
 	loadFeatureBook(){
-		this.Subscription_book = this.BookService.getFeatureBook(0).subscribe(data => {
+		this.Subscription_book = this.BookService.getFeatureBook(1).subscribe(data => {
 			this.featureBooks = data;
 		}, error => {
 			this.BookService.handleError(error);

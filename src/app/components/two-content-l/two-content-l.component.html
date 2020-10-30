@@ -98,7 +98,7 @@
         <div class="content">
           <div class="content-c">
             <table class="list-mobile" width="100%">
-              <tr *ngFor="let row of books 
+              <tr *ngFor="let row of bestBooks 
                       | divideArrayData: 3
                       | paginate: {id: 'best', itemsPerPage: 3, currentPage: pageBest }">
                 <ng-container *ngFor="let book of row">

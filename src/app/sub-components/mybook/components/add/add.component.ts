@@ -60,7 +60,8 @@ export class AddComponent implements OnInit, OnDestroy {
 			this.addmybook.value.bookprovider == '' || this.addmybook.value.bookauthor == '' ||
 			this.addmybook.value.bookcover == '' || this.addmybook.value.bookheight == '' ||
 			this.addmybook.value.bookwidth == '' || this.addmybook.value.booksku == '' ||
-			this.addmybook.value.bookpage == '' || this.addmybook.value.bookdescription == '') {
+			this.addmybook.value.bookpage == '' || this.addmybook.value.bookdescription == '' ||
+			this.base64textString == '') {
 			if (this.isVisible) {
 				return;
 			}
@@ -93,7 +94,7 @@ export class AddComponent implements OnInit, OnDestroy {
 					}
 
 					// Add new Author
-					if (checkAuthor) {
+					if (!checkAuthor) {
 						let author: Author = new Author(this.addmybook.value.bookauthor);
 						this.Subscription = this.AuthorService.addAuthor(author).subscribe(data => {
 
@@ -140,24 +141,44 @@ export class AddComponent implements OnInit, OnDestroy {
 						});
 						// Check Publisher adding to database - get id new Publisher
 						this.Subscription = this.PublisherService.getAllPublisher().subscribe(data => {
+							let checkPublisher = false;
+							let publisherID: string = '';
+							// Check new publisher
 							for (var i = data.length - 1; i >= 0; i--) {
 								if (data[i]["name"] == this.addmybook.value.bookpublisher) {
-									let book: Book = new Book(
-										this.addmybook.value.bookname, this.addmybook.value.bookpage,
-										this.addmybook.value.bookprice, this.addmybook.value.booksku,
-										data[i]["id"], sessionStorage.getItem("iduser"),
-										this.addmybook.value.bookheight, this.addmybook.value.bookwidth,
-										this.addmybook.value.bookcover, this.base64textString,
-										this.addmybook.value.bookdescription, 0,
-										this.addmybook.value.bookauthor, 0, 0, 1, 0
-									);
-									this.Subscription = this.BookService.addBook(book).subscribe(data => {
-
-									}, error => {
-										this.BookService.handleError(error);
-									});
+									checkPublisher = true;
+									let publisherID = data[i]["id"];
 								}
 							}
+							// Add new book with new publisher
+							if (checkPublisher) {
+								let book: Book = new Book(
+									this.addmybook.value.bookname, this.addmybook.value.bookpage,
+									this.addmybook.value.bookprice, this.addmybook.value.booksku,
+									publisherID, sessionStorage.getItem("iduser"),
+									this.addmybook.value.bookheight, this.addmybook.value.bookwidth,
+									this.addmybook.value.bookcover, this.base64textString,
+									this.addmybook.value.bookdescription, 0,
+									this.addmybook.value.bookauthor, 0, 0, 1, 0
+								);
+								this.Subscription = this.BookService.addBook(book).subscribe(data => {
+									if (this.isVisible) {
+										return;
+									}
+									this.isVisible = true;
+									this.messageAlert = 'Thêm sách mới thành công';
+									setTimeout(() => this.isVisible = false, 1000);
+								}, error => {
+									this.BookService.handleError(error);
+									if (this.isVisible) {
+										return;
+									}
+									this.isVisible = true;
+									this.messageAlert = 'Thêm sách thất bại';
+									setTimeout(() => this.isVisible = false, 1000);
+								});
+							}
+
 						}, error => {
 							this.PublisherService.handleError(error);
 						});
