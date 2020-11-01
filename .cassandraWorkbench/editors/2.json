@@ -1,1 +1,0 @@
-{"id":"DRuhB8wfHnqkbMWr","body":"-- change column name and type\nALTER TABLE book_store.admin ADD img TEXT;","filename":"script_6.cql","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","source":"action","modified":true}
