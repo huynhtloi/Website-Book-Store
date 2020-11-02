@@ -1,1 +1,1 @@
-{"id":"qPNX8V3wybth0ifE","body":"  SELECT id, name\n  FROM book_store.author\n  LIMIT 500;","filename":"script_3.cql","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","source":"action","modified":true}
+{"id":"AbzX5RvBZ4wF2ghc","body":"  SELECT id, access, img, name, pass, role, username\n  FROM book_store.admin\n  LIMIT 500;","filename":"script_4.cql","clusterName":"Cluster AllowAllAuthenticator","keyspace":"book_store","source":"action","modified":true}
