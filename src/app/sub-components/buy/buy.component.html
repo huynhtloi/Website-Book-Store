@@ -44,7 +44,7 @@
             </tr>
             <tr class="odd" *ngFor="let item of items | paginate: { itemsPerPage: 4, currentPage: page }">
               <td class="item">
-                <a class="image-mobile" title="{{item.name}}" href="#">
+                <a class="image-mobile" title="{{item.name}}" [routerLink]="['/detail']" [queryParams]="{id: item.idbook}">
                   <img [src]="item.img | formatImage" width="150%" style="object-position: -15px 0;">
                 </a>
               </td>
