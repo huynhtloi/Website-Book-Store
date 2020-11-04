@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
@@ -46,6 +46,8 @@ export class CartComponent implements OnInit {
 	public meesageAlert: string = '';
 	public showAlert: boolean = false;
 	public idUserLogin: string = sessionStorage.getItem('iduser');
+
+	@ViewChild('buttonClick') buttonClick: ElementRef;
 	constructor(
 		public CartService: CartService,
 		public BookService: BookService,
@@ -59,6 +61,9 @@ export class CartComponent implements OnInit {
 		this.carts = [];
 		this.shippers = [];
 		this.loadAllCart();
+		setTimeout(() => {
+			this.buttonClick.nativeElement.click();
+		}, 200);
 	}
 
 	loadAllCart() {
@@ -142,7 +147,7 @@ export class CartComponent implements OnInit {
 					else if (book.free == 0) {
 						this.items[j].shipperPriceSelected = shippers[i].price;
 					}
-					
+
 				}
 				else if (event.target.value == 0 &&
 					this.items[j].book.id == book.id) {
@@ -162,6 +167,9 @@ export class CartComponent implements OnInit {
 				// console.log(this.carts[i].idshipper);
 			}
 		}
+		setTimeout(() => {
+			this.buttonClick.nativeElement.click();
+		}, 200);
 	}
 
 	enterAmount(event, book, shippers) {
@@ -170,17 +178,29 @@ export class CartComponent implements OnInit {
 				this.items[i].amount = event.target.value;
 				for (var i = this.carts.length - 1; i >= 0; i--) {
 					if (this.carts[i].idbook == book.id) {
-						this.carts[i].amount = event.target.value;
-						this.Subscription_updateCart = this.CartService.updateById(this.carts[i], this.carts[i].id).subscribe(data => {
 
-						}, error => {
-							this.CartService.handleError(error);
-						});
+						if (event.target.value <= 0) {
+							console.log('successful');
+							this.meesageAlert = 'Số lượng không được số âm, vui lòng nhập lại';
+							this.showAlert = true;
+						}
+						else {
+							this.carts[i].amount = event.target.value;
+							this.Subscription_updateCart = this.CartService.updateById(this.carts[i], this.carts[i].id).subscribe(data => {
+
+							}, error => {
+								this.CartService.handleError(error);
+							});
+						}
+
 						// console.log(this.carts[i]);
 					}
 				}
 			}
 		}
+		setTimeout(() => {
+			this.buttonClick.nativeElement.click();
+		}, 200);
 	}
 
 	addCartToBuy() {

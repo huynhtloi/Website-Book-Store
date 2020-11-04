@@ -112,7 +112,7 @@
           </tbody>
         </table>
         <p class="submit" style="padding:10px; 0px;">
-          <input type="button" value="Cập nhật tổng tiền" (click)='updateAllPrice()'> &nbsp;
+          <input type="button" #buttonClick value="Cập nhật tổng tiền" (click)='updateAllPrice()'> &nbsp;
           <button (click)='addCartToBuy()'>Thực hiện đặt hàng</button> &nbsp;
           <button><a href="cart" class="Cart" (click)='deleteAllCart()'>Xóa tất cả sản phẩm</a></button> &nbsp;
           <input type="button" value="Hướng dẫn đặt hàng" [routerLink]="['/help']"> &nbsp;
