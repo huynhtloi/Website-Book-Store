@@ -1,8 +1,8 @@
 # Before Run
 
-npm install --save-dev @angular-devkit/build-angular
-Database: Cassandra
-Restful API Service: Spring-boot
+* ```npm install --save-dev @angular-devkit/build-angular```
+* Database: Cassandra
+* Restful API Service: Java Spring Boot
 
 # BookStore
 
